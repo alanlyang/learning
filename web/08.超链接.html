@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        超链接可以从一个页面跳转到其他页面，或其他位置
+        使用 a 标签来进行定义
+            属性：
+                id: 唯一不重复，每一个标签都可以添加一个唯一标识
+                href: 指定跳转目标的链接或路径， 路径为项目相对路径，一般使用 . 或 .. 开头
+                    设置为#号时直接回到顶部
+                    设置为#号加元素id 可以跳转到页面的任何位置
+
+                target 属性，用来指定超链接打开的位置
+                    可选：
+                        _self: 在当前页面中展开
+                        _blank: 表示打开一个新的标签
+
+        超链接也是一个行元素，但是在a标签中可以嵌套除它自身之外的其他标签
+    -->
+    <!--
+        在开发中可以将href先定义为#号占位
+        也可以使用 #javascript:; 占位
+    -->
+    <a href="http://www.baidu.com"> 超链接1</a><br>
+    <a href="07列表.html" target="_blank">超链接2</a><br>
+    <a href="#bottom">回到底部</a>
+    <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio nisi tenetur, libero voluptatem eius aut dignissimos, minus nam recusandae suscipit modi eligendi, autem consequatur sapiente totam enim? Amet, blanditiis illum.
+    </p>
+    <a href="#" id="bottom">回到底部</a>
+</body>
+</html>
