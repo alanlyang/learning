@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+         meta标签 ： 主要用于设置网页中的一些元数据
+            -charset: 指定字符集
+            -name: 指定数据名称
+            -content： 指定数据的内容
+    -->
+    <meta charset="UTF-8">
+    <!--
+        keywords: 表示网站的关键字，可以同时使用多个关键字。使用逗号隔开
+        description: 网站的的基本描述，会在搜索引擎的结果页面展示
+        http-equiv 指定跳转链接
+        title标签会作为搜索结果的超链接上的文字显示
+    -->
+    <meta name="keywords" content="html,前段,css">
+    <meta name="description" content="这是一个非常不错的网站">
+    <!--
+    <meta http-equiv="refresh" content="3;url=https://www.baidu.com">
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实体</title>
+</head>
+<!--  网页的标准结构 -->
+<!-- 
+    迭代
+    网页的版本
+    文档的声明
+        - 文档的声明用来告诉浏览器网页的版本
+        <!Doctype html> html的标准
+    进制
+-->
+<body>
+    <h1>我是你爸爸</h1>
+    <!-- 连续空格会被浏览器解析成一个空格
+    如过需要在html中使用这些特殊符号，通常需要使用到一些实体
+    -->
+
+    <!-- 
+        p 和 h 都是块元素： 独占一行的元素
+        hgroup: 用来将标签分组，用来将相关的标题放在一起
+        em 标签表示语音语调上的一个加重
+            在页面中不会独占一行的元素叫做行内元素
+        strong: 表示强调
+        blockquote 表示一个长引用
+    -->
+    <p>今天&nbsp&nbsp&nbsp&nbsp&nbsp天气<em>很</em><strong>不错</strong></p>
+    <hgroup>
+        <h1>一级标题</h1>
+        <h2>耳机标题</h2>
+        <h3>三级标题</h3>
+        <h4>四级标题</h4>
+        <blockquote>鲁西西唉</blockquote>
+    </hgroup>
+</body>
+</html>
