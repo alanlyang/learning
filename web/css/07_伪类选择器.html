@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            伪类（不存在的类，特殊的类）
+                - 伪类用来描述一个元素的特殊状态
+                    例如： 第一个子元素，被点击的元素，鼠标移入的元素
+                - 伪类一般使用冒号开头
+                    :first-child 第一个子元素
+                    :last-child 最后一个子元素
+                    :nth-child() 选中第n个子元素
+                        特殊值：
+                            n 第n个。 选中所有
+                            2n或even 表示偶数位置的
+                            2n+1或odd 表示选中奇数位的元素
+                    - 以上这些伪类，都是根据所有元素进行排序的
+
+                    :first-of-type
+                    :last-of-type
+                    :nth-of-type()
+                    - 以上只找相同类型的
+
+                    :not(): 否定伪类
+                        - 将符合条件的元素从选择器中去除
+        */
+        ul>li:first-child{
+            color: red;
+        }
+        ul>li:last-child{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>第一个</li>
+        <li>第二个</li>
+        <li>第三个</li>
+        <li>第四个</li>
+        <li>第五个</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 
+            1、将所有的段落设置为红色
+
+            元素选择器
+                作用： 根据标签名来选中指定的元素
+                语法： 标签名{}
+                例子： p{} div{}
+            
+            2、将某一句变成红色
+
+            id选择器
+                作用：根据id来选中一个原色
+                语法：#id属性值{}
+                例子: #box{}
+            
+            3、将指定若干句设置为蓝色
+
+            类选择器：
+                作用： 根据元素的class属性选中一组元素
+                语法: .class属性值
+            
+            通配选择器：
+                作用： 选中页面中所有的元素
+                语法： *
+
+        */
+
+        p{
+            color: red;
+        }
+
+        #red{
+            color: green;
+        }
+
+        .blue{
+            color: blue;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <p>你好</p>
+    <p>我是真的很不错</p>
+    <!-- 
+        class是一个标签属性，它和id蕾丝， 和Id不同的是，class可以重复使用
+            可以通过class 来对元素进行分类
+            可以同时为一个元素指定多个class属性
+     -->
+    <p id="red">我是真的真的很不错</p>
+    <p class="blue">我是真的真的真的真的很不错</p>
+    <p class="blue">yes</p>
+</body>
+</html>
