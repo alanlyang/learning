@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 
+            长度单位：
+                像素：
+                百分比：
+                    - 也可以将属性值设置为相对于父元素的百分比
+                    - 设置百分比可以使子元素随着父元素的改变而改变
+                em:
+                    - em 是相对于元素的字体大小来计算的
+                    - 1em = 1font-size
+                    - 通常默认font-size为16
+                rem:
+                    - 相对于跟元素的字体大小来计算
+        */
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+        }
+
+        .box2{
+            width: 50%; /*相当于100px*/
+            height: 50%;
+            background-color: blue;
+        }
+
+        .box3{
+            width: 10em;
+            height: 10em;
+            font-size: 10px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+    <div class="box3"></div>
+</body>
+</html>

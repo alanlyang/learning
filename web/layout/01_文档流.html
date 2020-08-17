@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box1{
+            background-color: yellow;
+            width: 100px;
+        }
+        .box2{
+            background-color: red;
+            width: 100px;
+        }
+
+        span{
+            background-color: #bbffaa;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 
+        文档流(normal flow):
+            - 网页是一个多层结构，一层压着一层
+            - 通过css可以分别为每一层设置样式
+            - 作为用户只能看键最上层的一层
+            - 这些层中，最底下的一层叫做文档流
+                文档流是网页的基础
+                我们所创建的元素默认都在文档流中进行排列
+            -对于我们来说，元素主要有两个状态
+                在文档流中
+                不再文档流中
+            
+            在文档流中的特点
+                - 块元素
+                    - 在页面中独占一行
+                    - 默认宽度是父元素的全部
+                    - 默认高度是被内容撑开
+
+                - 行内元素
+                    - 行内元素只占自身大小
+                    - 行内元素自左向右水平排列,如果一行中不能容纳所有的行内元素，这回换到第二行继续自左向右排列
+                    - 行内元素的默认宽度和高度默认都是被内容撑开
+            
+            
+     -->
+
+     <div class="box1"><em>我是一个div</em></div>
+     <div class="box2">我也是一个div</div>
+
+     <span>我是一个s边</span>
+     <span>我也是一个span</span>
+</body>
+</html>
