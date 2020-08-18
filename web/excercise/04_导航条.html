@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导航条</title>
+    <link rel="stylesheet" href="../resource/reset.css">
+
+    <style>
+        body{
+            background-color: whitesmoke;
+        }
+
+        /* 设置nav */
+        .nav{
+            width: 1210px;
+            height:48px;
+            background-color: #e8e7e3;
+
+            margin: 100px auto;   
+        }
+
+        /* 设置li为浮动排列 */
+        .nav li{
+            float: left;
+            /* 设置li的高度 */
+            height: 48px;
+            /* 将元素居中显示 */
+            line-height: 48px;
+        }
+
+        .nav a{
+            color: rgb(132,132,132);
+            text-decoration: none;
+            font-size: 18px;
+
+            /* 转化为块元素设置高度 */
+            display: block;
+            height: 100%;
+
+            padding: 0 39px;
+        }
+
+        .nav li:hover{
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 创建导航条结构 -->
+    <ul class="nav">
+        <li class="item"><a href="#">HTML/CSS</a></li>
+        <li class="item"><a href="#">Browser Side</a></li>
+        <li class="item"><a href="#">Server Side</a></li>
+        <li class="item"><a href="#">Programming</a></li>
+        <li class="item"><a href="#">Xml</a></li>
+        <li class="item"><a href="#">Web Building</a></li>
+        <li class="item"><a href="#">Reference</a></li>
+    </ul>
+    
+</body>
+</html>

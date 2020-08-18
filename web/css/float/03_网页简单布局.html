@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../resource/reset.css">
+
+    <style>
+
+        header, main, footer{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        /* 设置头部 */
+        header{
+            height: 150px;
+            background-color: silver;
+        }
+        /* 设置主题 */
+        main{
+            height:600px;
+            background-color: red;
+            margin: 8px auto;
+        }
+        /* 设置左侧导航 */
+        nav{
+            width: 190px;
+            height: 100%;
+            background-color: skyblue;
+            float: left;
+        }
+        /* 设置中间内容 */
+        article{
+            width: 600px;
+            height: 100%;
+            background-color: orange;
+            float: left;
+
+            margin: 0 10px;
+        }
+        /* 设置box1、box2 */
+        .box1, .box2{
+            width: 600px;
+            height: 295px;
+        }
+        .box1{
+            background-color: yellow;
+            margin-bottom: 10px;
+        }
+
+        .box2{
+            background-color: burlywood;
+        }
+
+        .box11, .box12, .box13{
+            float: left;
+            height: 100%;
+            width: 200px;
+        }
+        .box11{
+            background-color: coral;
+        }
+        .box12{
+            background-color: darkgreen;
+        }
+
+
+        /* 设置底部样式 */
+        aside{
+            width: 190px;
+            height: 100%;
+            background-color:green;
+            float: left;
+        }
+
+        /* 设置底部 */
+        footer{
+            height: 150px;
+            background-color: silver;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 创建网页头部 -->
+    <header></header>
+
+    <!-- 创建网页主题 -->
+    <main>
+        <nav class="left-nav"></nav>
+        <article>
+            <div class="box1">
+            </div>
+            <div class="box2">
+                <div class="box11"></div>
+                <div class="box12"></div>
+                <div class="box13"></div>
+            </div>
+        </article>
+        <aside></aside>
+    </main>
+
+    <!-- 创建网页底部 -->
+    <footer></footer>
+    
+</body>
+</html>
