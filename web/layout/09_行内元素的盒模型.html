@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .s1{
+            background-color: #aaffbb;
+            /* 
+                行内元素的盒模型
+                    - 行内元素不支持width 和 height
+                    - 行内元素支持padding，但是垂直方向的padding不会影响页面布局
+                    - 行内元素可以设置border, 但是不会影响垂直方向布局
+                    - 可以设置margin, 垂直方向不会影响布局，
+            */
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+
+        }
+
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color:  orange;
+            /* 
+                display 用来设置显示的类型
+                    可选值：
+                        inline: 将元素设置为行内元素
+                        block： 将元素设置为块元素
+                        inline-block: 设置为行内块元素
+                            行内块，可以设置宽度和高度但是又不会独占一行
+                        table: 将元素设置为一个表格
+                        none： 元素不再页面中显示
+                visiblity: 用来设置元素的显示状态
+                    可选值:
+                        visible 默认值
+                        hidden 元素在页面中隐藏，不限时，但是依然占据页面的位置
+
+            */
+        }
+
+    </style>
+</head>
+<body>
+    <span class="s1">我是一个span</span>
+    <div class="box1"></div>
+    
+</body>
+</html>

@@ -6,107 +6,20 @@
     <title>Document</title>
 
     <style>
-        .box1{
-            /*
-                内容区(content), 元素中所有的子元素都在content中进行排列
-                width 和 height 设置的只是内容区的大小
 
-            */
-            width:200px;
-            height:200px;
-            background-color: #bbffaa;
-
-            /* 
-                边框(border): 边框属于盒子边缘，
-                要设置边框，至少需要设置三个样式：
-                    边框的宽度： border-width,
-                        - 默认值一般为3个像素，
-                        - 四个值的方向为上、右、下、左
-                        - 三个值， 上、左右、下
-                        - 两个值， 上下、左右
-                        - 除了border-width ,还有border-xxx-width:
-                            xxx 为 top\right\bottom\left
-                    边框的颜色: border-color
-                        - border-xxx-color 规则同width
-                        - 如果不指定，默认为黑色
-                    边框的样式: border-style
-                        - soild 表示实线
-                        - dotted 点妆虚线
-                        - dashed 虚线
-                        - double 双线
-                        - 默认值是 none 表示没有边框
-             */
-             /* 
-                border的简写属性
-                    通过该属性可以同时设置边框所有的相关样式，并没有顺序要求
-                同理有 border-top border-bottom border-left border-right
-              */
-             /* border-width: 10px;
-             border-color: red;
-             border-style: solid; */
-             border: 10px red solid;
-
-             /* 
-                内边距(padding)
-                    - 内容区和边块之间的距离
-                    - 一共四个方向的内边距
-                        - padding-top
-                        - padding-right
-                        - padding-bottom
-                        - padding-left
-                    - 内边距的大小会影响到盒子的大小
-                    - 背景颜色会延伸到内边距上
-                
-                盒子的大小由内容区大小 + 内边距大小 + 边框大小  
-
-                内边距 + 内容区 + 边框，称为可见块
-                    
-              */
-              padding: 100px;
-
-              /* 
-                    外边距（margin)
-                        - 上右下左
-                        - margin会影响盒子占用空间的大小，但不会影响可见块大小
-                        - margin-top:
-                            上外边距， 设置为正值时，元素向下移动
-                        - margin-left
-                            左外编剧，设置为正值时，元素向右移动
-                        - margin-bottom
-                        - margin-right
-                        - 元素在页面中是自左向右，自上而下顺序排列的
-                            因此设置上、左外边距会移动元素
-                            设置下、右边距会移动其他元素
-                        - margin 也可以设置负值，则会向相反方向移动
-                            
-
-               */
-               margin: 100px;
-
-              
-
-
-        }
-        .inner{
-            width: 100%;
-            height: 100%;
-            background-color: yellow;
-        }
     </style>
 </head>
 <body>
     <!-- 
-        盒子模型，盒模型，框模型 (box model)
-            - css 将页面中所有的元素都视为一个矩形的盒子
-            - 对页面的布局就变成不同盒子的排列
-            - 每一个盒子由以下几个部分组成
-                内容区（content)
-                内边距（padding)
-                边块（border)
-                外边距 (margin)
+        盒模型(box model)
+            - css 将页面中的所有元素都设置成一个矩形的盒子
+            - 布局就变成了盒子的摆放
+            - 每一个盒子都由以下几个部分组成
+                
+
      -->
-     <div class="box1">
-         <div class="inner"></div>
-     </div>
+
+     <div>我是一个div</div>
+     <div>我也是一个div</div>
 </body>
 </html>

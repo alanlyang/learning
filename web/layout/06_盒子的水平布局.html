@@ -12,13 +12,45 @@
             border: 10px red solid;
         }
         .inner{
-            
+            /* width的默认值是auto */
+            width: 200px;
+            height: 200px;
+            background-color: #aaffbb;
+            margin-left: auto;
+            margin-right: auto;
         }
+        /* 
+            元素的水平方向布局由
+                - 元素在其父元素中的水平位置由以下几个因素共同决定
+                     margin-left
+                     border-left
+                     padding-left
+                     width
+                     padding-right
+                     border-right
+                     margin-right
+
+                一个元素在其父元素中，水平布局必须满足以下等式：
+                    父元素内容区宽度(width) = 以上所有因素之和
+                    等式必须成立，如果等式不成立，则称为过度约束，等式会自动调整
+                        - 如果等式中七个元素没有auto的情况，则浏览器会自动调整margin-right的值
+                    这7个值中由三个值可以设置为auto
+                     width , margin-left. ,margin-right
+                     - 如果某个值为auto， 则会自动调整设置为auto的值使等式满足
+                
+                     -  如果三个值都设置成auto，则width自动调整为最大，
+                     - 如果两个margin都设置为auto， 宽度值为固定值，则会将左右外边距设置为相同，
+                        开发中通常使用这种方式使子元素在父元素中居中显示
+                        
+
+
+                    
+        */
     </style>
 </head>
 <body>
     <div class="outter">
-        <div class="innner"></div>
+        <div class="inner"></div>
     </div>
 </body>
 </html>

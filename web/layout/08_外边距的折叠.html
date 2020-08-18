@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1, .box2{
+            width: 200px;
+            height: 200px;
+            font-size: 100px;
+        }
+        /* 
+            垂直外边距的折叠：
+                - 相邻的垂直方向的外边距会发生重叠现象
+                -兄弟元素
+                    -兄弟元素键的相邻垂直外边距会取两者之间的较大值（两者都是正值）
+                    -特殊情况 
+                        如果相邻额外边距一正一负，则取两者的和
+                        如果相邻的外边距都是负值，则取绝对值较大的一个
+                    
+                    兄弟元素的外边距重叠是对开发有利的，所以一般情况不需要进行处理
+                -父子元素
+                    - 父子元素间的相邻外边距，子元素会传递给父元素（上外边距）
+                    - 父子外边距的折叠会会影响到页面的布局，必须要进行处理
+                        1、通过padding来解决
+                        2、使上外边距不相邻，通过加一个border来解决，隔开外边距和height
+        */
+
+        .box1{
+            background-color: #aaffbb;
+            /* 设置一个下外边距 */
+            margin-bottom: 100px;
+        }
+        .box2{
+            background-color: orange;
+        }
+
+        .box3{
+            background-color: #aaffbb;
+            width: 200px;
+            height: 199px;
+            border-top: 1px red solid;
+        }
+        .box4{
+            background-color: orange;
+            width:100px;
+            height: 100px;
+            margin-top: 99px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="box1"></div>
+    <div class="box2"></div> -->
+    <div class="box3">
+        <div class="box4"></div>
+    </div>
+</body>
+</html>

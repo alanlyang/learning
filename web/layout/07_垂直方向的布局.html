@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .outter{
+            background-color: #afb;
+            /* 
+                默认情况下父元素的高度被内容撑开
+                子元素是在父元素的内容区中排列的
+                如果子元素的高度超过父元素，则称为溢出
+                使用overflow属性来设置父元素如何处理溢出的子元素
+                    可选值：
+                        visible: 默认值，子元素会溢出，在父元素外部的位置显示
+                        hidden: 溢出隐藏，溢出的部分将会被裁剪，不显示
+                        scroll: 添加滚动条，生成两个滚动条，通过两个滚动条来查看完整的内容
+                        auto：根据需要生成滚动条
+
+
+            */
+        }
+
+        .inner{
+            height: 200px;
+            width: 100px;
+            background-color: yellow;
+        }
+
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: #afb;
+            overflow: auto;
+        }
+        .box2{
+            width: 100px;
+            height: 400px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="outter">
+        <div class="inner"></div>
+    </div> -->
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+</html>
