@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../resource/reset.css">
+
+    <style>
+        /* 设置body样式 */
+        body{
+            background-color: #aaffbb;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        /* 设置容器样式 */
+        .news-wrapper{
+            width: 300px;
+            height: 358px;
+            /* 设置上边框 */
+            border-top: 1px #ddd solid;
+            
+            background-color: whitesmoke;
+            margin: 50px auto;
+        }
+
+        /* 设置title */
+        .news-title{
+            /* 为了边框与文字狂赌一直，需要将H2转化为行内块 */
+            display: inline-block;
+            height: 30px;
+
+            border-top: 1px red solid;
+            margin-top: -1px;
+
+            padding-top: 10px;
+        }
+
+        /* 设置title中的超链接样式 */
+        .news-title a{
+            /* 去除下划线 */
+            text-decoration: none;
+            /* 设置颜色 */
+            color: #404068;
+            /* 字体加粗 */
+            font-weight: bold;
+            /* 设置字体上边距, 通过改变父元素的padding来实现 */
+        }
+
+        /* 设置图片容器 */
+        .image{
+            height: 150px;
+        }
+
+        /* 设置图片的文字效果 */
+        .image .image-title{
+            /* 向上移动文字 */
+            margin-top: -30px;
+            /* 设置加粗、去下划线 */
+            font-weight: bold;
+            text-decoration: none;
+           
+            /*  文字向右移动 */
+            padding-left: 10px;
+            /* 文字颜色 */
+            color: white
+        }
+
+        /* 设置新闻列表样式 */
+        .news-list{
+            margin-top: 20px;
+            /* padding-left: 14px; */
+        }
+
+        /* 设置li的样式 */
+        .news-list li{
+            margin-bottom: 17px;
+        }
+        .news-list li a::before{
+            content: '♦️';
+            color:rgb(218, 218,218);
+            font-size: 12px;
+            margin-right: 10px;
+        }
+
+        .news-list li a{
+            font-size: 14px;
+            color: #666666;      
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <!-- 创建新闻列表的外侧容器 -->
+    <div class="news-wrapper">
+        <!-- 创建一个标题标签 -->
+        <h2 class="news-title">
+            <a href="#">体育</a>
+        </h2>
+
+        <!-- 创建一个图片的容器 -->
+        <div class="image">
+            <a href="#">
+                <img src="https://cms-bucket.ws.126.net/2020/0818/de527715j00qf8kih001fc000s600e3c.jpg?imageView&thumbnail=300y150&type=webp"
+                    alt="图片">
+                <!-- 常见图片标题 -->
+                <h3 class="image-title"> 
+                    我是真的很不错！
+                </h3>
+            </a>
+
+        </div>
+
+        <!-- 创建新闻列表 -->
+        <ul class="news-list">
+            <li class="item"><a href="#">一句话讲述一个悲伤的故事</a></li>
+            <li class="item"><a href="#">秃驴</a></li>
+            <li class="item"><a href="#">竟敢和老夫抢师太</a></li>
+            <li class="item"><a href="#">滚！</a></li>
+        </ul>
+
+
+    </div>
+</body>
+
+</html>

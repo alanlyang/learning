@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东左侧导航栏</title>
+    <link rel="stylesheet" href="../resource/reset.css">
+
+    <style>
+        /* 设置body背景色， 便于调试 */
+        body{
+            background-color: rosybrown;
+        }
+
+        /* 设置菜单容器 */
+        .left-nav{
+            width: 190px;
+            height: 450px;
+            overflow: hidden;
+
+            padding: 10px 0px;
+            /* 设置背景色 */
+            background-color: #f4f4f4;
+
+            /* 居中 */
+            margin: 50px auto;
+        }
+
+        /* 设置菜单内部的item */
+        .left-nav .item{
+            height: 25px;
+            width: 100%;
+
+            /* 要让一个文字在父元素中垂直居中，只需将父元素的line-height设置为一个和父元素height一样的值 */
+            line-height: 25px;
+            /* 将文字向右移动*/
+            padding-left: 18px;
+            font-size: 12px;
+        }
+
+        /* 为item增加一个鼠标移入效果 */
+        .item:hover{
+            background-color: grey;
+        }
+
+        /* 设置超链接格式 */
+        .item a{
+            color: #333333;
+            /* 去除下划线 */
+            text-decoration: none;
+            /* 设置字体大小 */
+            font-size: 14px;
+        }
+        /* 斜线的不一致，是结构设计问题，通常不要将文本直接暴漏在标签外，需要加span进行单独的格式调整 */
+
+        /* 为超链接绑定hover */
+        .item a:hover{
+            color: #c81623;
+        }
+
+
+
+    </style>
+
+</head>
+
+<body>
+    <!-- 创建一个外部的容器， nav(div) div(div) ul(li) 均可 -->
+    <nav class="left-nav">
+        <div class="item">
+            <a href="#">家用电器</a>
+        </div>
+        <div class="item">
+            <a href="#">手机</a>/
+            <a href="#">数码</a>/
+            <a href="#">运营商</a>
+        </div>
+        <div class="item">
+            <a href="#">手机</a>/
+            <a href="#">数码</a>/
+            <a href="#">运营商</a>
+        </div>
+        <div class="item">
+            <a href="#">手机</a>/
+            <a href="#">数码</a>/
+            <a href="#">运营商</a>
+        </div>
+        <div class="item">
+            <a href="#">手机</a>/
+            <a href="#">数码</a>/
+            <a href="#">运营商</a>
+        </div>
+        <div class="item">
+            <a href="#">手机</a>/
+            <a href="#">数码</a>/
+            <a href="#">运营商</a>
+        </div>
+        <div class="item">
+            <a href="#">手机</a>/
+            <a href="#">数码</a>/
+            <a href="#">运营商</a>
+        </div>
+        <div class="item">
+            <a href="#">手机</a>/
+            <a href="#">数码</a>/
+            <a href="#">运营商</a>
+        </div>
+        <div class="item">
+            <a href="#">手机</a>/
+            <a href="#">数码</a>/
+            <a href="#">运营商</a>
+        </div>
+        <div class="item">
+            <a href="#">手机</a>/
+            <a href="#">数码</a>/
+            <a href="#">运营商</a>
+        </div>
+        <div class="item">
+            <a href="#">手机</a>/
+            <a href="#">数码</a>/
+            <a href="#">运营商</a>
+        </div>
+        <div class="item">
+            <a href="#">手机</a>/
+            <a href="#">数码</a>/
+            <a href="#">运营商</a>
+        </div>
+        <div class="item">
+            <a href="#">手机</a>/
+            <a href="#">数码</a>/
+            <a href="#">运营商</a>
+        </div>
+        <div class="item">
+            <a href="#">手机</a>/
+            <a href="#">数码</a>/
+            <a href="#">运营商</a>
+        </div>
+        <div class="item">
+            <a href="#">手机</a>/
+            <a href="#">数码</a>/
+            <a href="#">运营商</a>
+        </div>
+    </nav>
+
+</body>
+
+</html>

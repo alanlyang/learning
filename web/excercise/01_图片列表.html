@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片列表</title>
+    <link rel="stylesheet" href="../resource/reset.css">
+    <style>
+        /* s设置body背景色 */
+        body{
+            background-color: rosybrown;
+        }
+        .img-list{
+            /*设置ul的样式*/
+            width: 190px;
+            height: 470px;
+            /* 裁剪溢出的部分 */
+            overflow: hidden;
+
+            /* 使ul在页面中居中 (实际开发中 不需要，为了调试使用）*/
+            margin: 50px auto;
+            /* 设置背景色 */
+            background-color: #f4f4f4;
+        }
+
+        .img-list img{
+            width: 100%;
+        }
+
+        .img-list li:not(:last-of-type){
+            margin-bottom: 10px;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <ul class="img-list">
+        <li>
+            <a href="javascript">
+                <img src="https://img12.360buyimg.com/babel/s380x300_jfs/t1/127879/32/9707/54328/5f39d8d7E34663ea3/4d454259894129bd.jpg.webp" alt="第一张图">
+            </a>
+        </li>
+        <li>
+            <a href="javascript">
+                <img src="https://img13.360buyimg.com/babel/s380x300_jfs/t1/143846/12/5115/50115/5f326989Ef8e1d597/55a67fd3c7a706c1.jpg.webp" alt="第二张图">
+            </a>
+        </li>
+        <li>
+            <a href="javascript">
+                <img src="https://img13.360buyimg.com/babel/s380x300_jfs/t1/138824/17/5683/70594/5f39fcbeE4387dab6/ee1f7af0e827131a.jpg.webp" alt="第三张图">
+            </a>
+        </li>
+    </ul>
+</body>
+</html>
