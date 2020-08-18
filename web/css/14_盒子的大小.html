@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: #aaffbb;
+            border: 10px red solid;
+            padding:10px;
+
+            /* 
+                默认情况下，盒子可见框的大小由内容区+border+padding的大小共同决定。
+                box-sizing： 用来设置盒子尺寸的计算方式
+                    可选值：
+                        content-box: 默认值， 宽度和高度来设置内容去大小
+                        border-box: 宽度和高度用来设置整个盒子的大小
+                            指的是内容去和内边距的总大小
+
+            */
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>
