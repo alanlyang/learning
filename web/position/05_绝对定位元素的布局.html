@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box1{
+            width: 500px;
+            height: 500px;
+            background-color: #bfa;
+
+            position: relative;
+        }
+
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+
+            /* 
+                水平布局
+
+                当开启绝对定位后，水平方向的布局就需要添加left和right两个值
+                    规则和之前一样，只是多增加了两个值
+
+                    当发生过度约束时
+                        如果9个值中没有auto,则自动调整right的值使等式满足
+                        如果元素中由auto，则自动调整设置为auto的值
+
+                        可设置auto的值
+                            margin width left right
+                        
+                        因为left和right的默认值是auto，因此如果不设置left和right，则浏览器会自动调整left和right
+                
+                垂直方向的布局也必须要满足
+                    垂直居中可以使用 
+                        margin-top: auto
+                        margin-bottom: auto
+
+
+            
+             */
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+</html>
