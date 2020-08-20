@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            /* background-color: #bbffaa; */
+
+            /* background-image: linear-gradient(65deg,red, yellow); */
+            background-image: radial-gradient(red, yellow);
+
+            /* 
+                通过渐变可以设置一些复杂的背景颜色
+                可以实现从一个颜色向其他颜色过度的效果
+
+                渐变是图片，需要通过background-image来设置
+
+                线性渐变：颜色沿着一条直线变化
+
+                background-image: linear-gradient(red, yellow， blue)等
+                    - 也可以指定渐变方向（放在第一个参数）
+                        to top
+                        to left
+                        to right
+                        to bottom
+
+                        也可以直接写度数
+                        xxxdeg deg表示度数
+                        turn 为圆
+                    - 渐变可以设置多个颜色，默认情况下，多种颜色均分区域
+                        也可以手动指定分布情况
+
+                background-image: repeating-linear-gradient(red, yellow， blue)
+                    - 可平铺渐变
+            */
+
+            /* 
+                径向渐变：
+                    radial-gradient() （放射性效果)
+
+                    默认情况下径向渐变是根据元素的形状来计算的，圆或者椭圆
+                    和linear一样，支持类型和指定渐变位置
+
+                    background-image: radial-gradient(0 0 at, red, yellow);
+                    指定圆心为0，0
+                        语法： radial-gradient(大小 at 位置， 颜色 位置， 颜色 位置， 颜色 位置)
+
+                    
+
+            */
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>

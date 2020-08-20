@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 
+            background-color: 背景颜色
+            background-image: 背景图片
+                用法： backgroud-image: url("图片路径")
+                可以同时设置背景图片和背景颜色。此时背景颜色为图片背景
+                - 如果背景图片小于颜色，则会自动平铺
+                - 如果背景图片大于图片，则会裁剪
+            background-repeat: 用来设置背景重复方式
+                - 可选值:
+                    repeat: 默认值， 背景会沿着x轴和y轴方向重复
+                    repeat-x
+                    repeat-y
+                    no-repeat: 背景图片不重复
+            background-position: 设置背景图片的位置
+                设置方式：
+                    通过，top  left  right bottom center 表示方位的词来进行
+                        使用方位词时，至少需要两个来定位，否则默认一个为center
+                    通过偏移量来指定背景图片的位置
+                        50px  300px 
+            background-clip： 设置背景颜色方位
+                可选值：
+                    - border-box : 默认
+                    - padding-box : 背景只出现在内容去 + 内边距
+                    - content-box: 背景只会出现在内容区
+            background-origin: 背景偏移量计算的原点
+                - padding-box: 默认值， bacground-position从内边距处开始计算
+                - content-box
+                - border-box
+            background-size: 设置背景图片的大小
+                第一个值表示宽度
+                第二个值表示高度
+                - 如果只写一个，则第二个默认为auto
+
+                cover. 图片比例不变，把元素铺满
+                contain, 图片比例不变，图片完整显示 
+            background-attachment: 背景图片是否跟随元素移动
+                可选值:h
+                    - scroll 默认
+                    - fixed 固定
+                    、
+
+
+            background 同样支持简写，但是需要注意的是，
+                - background-size必须在background-position后面并且使用/ 隔开
+                - background-origin 必须在clip前面
+
+
+        */
+
+        /* 
+            可以通过将多个小图片保存在一个大图片中，然后通过background-position 来选择不同的团
+            这种图称为 css-Sprite 也叫雪碧图
+
+            雪碧图使用步骤：
+                1、确定要使用的图标
+                2、测量图标大小
+                3、根据测量结果来创建元素
+                4、将雪碧图设置为元素的背景图片
+                5、设置一个偏移量来显示正确的图片
+            雪碧图特点：
+                一次性将多个图片加载进页面，减少请求次数
+                
+        */
+
+        /* 
+            渐变
+        */
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
