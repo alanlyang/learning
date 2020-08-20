@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            font-size: 50px;
+            /* 
+                行高(line-height)
+                    - 文字实际占有的高度
+                    - 通过line-height来设置
+                        行高可以直接指定一个大小
+                        也可以设置为一个整数。表示是字体的倍数
+                        默认是1.333
+                字体块
+                    - 字体指的就是字体存在的格子，设置font-size，就是实际设置字体框的高度
+                
+                行高会在字体框的上下平均分配：
+                    - 通常可以设置行高和高度一直，使文字单行居中
+                    - 行高还通常用来设置文字的行间距
+                        行间距 = 行高 - 字体大小
+             */
+
+             border: 1px red solid;
+             /* 
+                简写属性：
+                    可以直接使用font ，直接设置字体的所有属性
+                        font : (font-weight 、 font-style)字体大小/行高， 字体族
+                            行高可以省略不写，如果不写，会直接使用默认值
+                            字体大小和字体族必须写
+              */
+
+              /* 
+                    font-weight 自重，字体的加粗
+                        - 可选值
+                            normal: 默认值，不加粗
+                            bold： 加粗 （实际上提供了 100-900 九个级别)
+
+                    font-style:
+                        - 可选值
+                            normal: 默认，正常
+                            italic: 斜体
+
+
+               */
+
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">今天天气真热</div>
+</body>
+</html>
