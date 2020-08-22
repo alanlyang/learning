@@ -109,3 +109,49 @@ li:hover> .app .qrcode{
     color: #ff6700;
 
 }
+
+
+/* 设置header样式 */
+.header{
+    height: 100px;
+    /* background-color: #bbffaa; */
+}
+
+.header .logo{
+    float: left;
+    margin-top: 22px;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.header .logo:hover .home{
+    left: 50px;
+}
+.header .logo:hover .mi{
+    left: 0;
+}
+
+.header .logo a{
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 50px;
+    transition: left 0.3s;
+}
+
+.header .logo .home{
+    position: absolute;
+    background-image: url("../../excercise/src/img-02.png");
+    left: 0;
+    background-position: center;
+    background-size: 50px 50px;
+}
+
+.header .logo .mi{
+    position: absolute;
+    background-image: url("../../excercise/src/img-03.jpg");
+    background-size: 50px 50px;
+    left: -50px;
+}
