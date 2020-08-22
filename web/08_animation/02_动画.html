@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 
+            动画和过渡类似，都是可以实现一些动态的效果
+                不同的是过渡需要在某个属性发生变化时才会触发
+                动画可以自动触发动态效果
+
+            设置动画效果，必须要设置一个关键帧，关键帧设置了动画执行的每一个步骤
+        */
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1{
+            width: 800px;
+            height: 800px;
+            background-color: silver;
+            overflow: hidden;
+        }
+
+        .box1 div{
+            width: 100px;
+            height: 100px;
+            margin-bottom: 100px;
+        }
+
+        .box2{
+            background-color: #bbffaa;
+
+            /* 设置box2的动画 */
+            /* animation-name 对当前元素生效的关键帧 */
+            animation-name: test;
+            /* 动画执行时间 */
+            animation-duration: 2s;
+            /* 动画延时 */
+            animation-delay: 2s;
+            /* 动画执行次数
+                可选值：
+                    次数
+                    infinite 无限次
+            */
+            animation-iteration-count: infinite;
+            /* 动画运行方向 */
+            animation-direction: reverse;
+            /* animation-play-state: 动画的执行状态
+                可选L： normal
+                    pause */
+
+            /*
+                animation-fill-mode: 动画的填充模式
+                    none: 
+                    forwards
+                    backwards: 动画延时等待时，会在from位置
+                */
+        }
+        @keyframes test{
+            /* to表示动画开始位置， 也可以使用0% */
+            to{
+                margin-left: 700px;
+            }
+
+            from{
+                margin-left:  0px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+</html>
