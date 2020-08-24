@@ -5,22 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        html{
+             /* 原生css也支持变量的设置
+                但是版本的兼容性支持不太好
+                var()变量函数
+                calc()计算函数
+
+             */
+             --color: yellow;
+        }
         .box1{
             width:  100px;
             height: 100px;
-            background-color: #bfa;
+            background-color: var(--color);
         }
 
         .box2{
             width: 100px;
             height: 100px;
-            color: #bbffaa;
+            color:  var(--color);
         }
 
         .box3{
             width: 100px;
             height: 100px;
-            border: 1px red solid;
+            border: 1px var(--color) solid;
         }
 
 
@@ -30,6 +39,8 @@
     <!-- 
         less是一门css的预处理语言
             - less 是css的增强版，通过Less可以编写更少的代码实现更强大的样式
+            - 在less中添加了很多的新特性，例如对变量的支持，对MIxin的支持
+            - less的语法大体上和css语法一致，但是less增加了许多对css的拓展，所以浏览器无法直接执行less代码，要执行必须将less转化为Css，然后再由浏览器解析
 
      -->
      <div class="box1">aaa</div>
