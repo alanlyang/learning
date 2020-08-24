@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        可以将js代码编写到外部的js文件中，然后通过script标签引入，指定src
+        推荐使用方式
+        script便签一旦用于引入外部便签，则不能在内部再使用js代码
+        如果需要使用，需要在写一个script标签
+     -->
+</head>
+<body>
+    <!-- 可以将js代码写到标签的onClick属性中 
+        虽然可以写在标签属性中，但是他们属于结构和行为耦合，不方便维护，不推荐使用
+    -->
+    <button onclick="alert('你好啊')">点我以下</button>
+
+    <!-- 可以将js代码写在超链接的href中，这样当点击超链接时会执行相应的操作 -->
+    <a href="javascript: alert('你还真点啊？');">也点我以下</a>
+</body>
+</html>
