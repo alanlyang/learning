@@ -1,0 +1,44 @@
+/*
+    css中的注释，被容回被解析到css的文件中
+*/
+.box1 {
+  background-color: #bfa;
+}
+.box1 .box2 {
+  background-color: yellow;
+}
+.box1 .box3 {
+  background-color: blue;
+}
+.box5 {
+  width: 100px;
+}
+.box6 {
+  width: 300px;
+}
+.car1 .car2 {
+  color: red;
+}
+.car1 > .car3 {
+  color: black;
+}
+.car1:hover {
+  color: orange;
+}
+.p1,
+.p2 {
+  width: 100px;
+  height: 200px;
+}
+.p2 {
+  color: silver;
+}
+.p3 {
+  width: 100px;
+  height: 200px;
+}
+div {
+  width: 200px;
+  height: 100px;
+  border: 1px red solid;
+}
