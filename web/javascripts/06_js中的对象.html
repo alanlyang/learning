@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        /*
+            基本数据类型
+                String
+                Number
+                Boolean
+                Null
+                Undefined
+
+                Object
+                    - 属于一种复合的数据结构，可以设置多种数据类型以及方法
+                
+                对象的分类
+                内建对象
+                    - 由ES标准中定义的对象，在任何es的实现中都可以使用
+                    - 例如 Math String Number BOolean Function
+
+                宿主对象
+                    - 由js的运行环境提供的对象，目前来讲主要是由浏览器提供的对象
+                    - 比如 BOM  DOM
+                        console,  document 都是宿主对象
+
+                自建对象
+                    - 由开发人员自己创建的对象
+
+        */
+
+        // 创建对象
+        var obj = new Object();
+        // 向对象中添加属性
+        /*
+            语法：对象.属性名 = 值
+
+            如果读取对象中没有的属性，则会返回undefined
+
+            属性的值可以被重新覆盖
+
+        */
+
+        obj.name = "孙悟空";
+        obj.gender = "男";
+
+        // 删除对象中的属性 ： delete  obj.name
+
+        /* 
+           对象的属性名，不强制要求遵守字符标识规范
+           如果使用特殊的变量名，不能使用. 方式来操作
+           可以使用
+            obj["123"] = 456；
+            读取的时候也需要使用这种方式
+
+            使用【】这种形式更加灵活
+                []中可以传递一个变量，这样变量值就可以读取到对应的属性
+        */
+
+        var key="age";
+        obj[key] = 18;
+
+        /*
+
+            对象的属性值可以是任何的类型，甚至也可以是一个对象
+            可以使用in 来判断obj中是否有属性
+
+            obj是引用数据类型
+
+            js中的变量都是保存在栈内存中的
+
+                基本数据类型都直接保存在栈中
+                各个值之间是相互独立的
+            
+            对象类型是存储在堆内存中的， 变量在栈中存储堆对应的内存地址（对象的引用）
+        */
+
+        /*
+            构建对象还可以直接使用{} ,并且在初始化的时候直接指定初始值
+            属性名和属性值是 key: value结构
+        
+        */
+       var obj3 = {
+           name: "狗东西",
+           age: "18",
+       }
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
