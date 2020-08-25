@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            垃圾回收(GC)
+                - 当一个对象没有任何的属性对其进行引用时，该对象就成为垃圾
+                    垃圾过多，会占用大量的内存空间，导致程序变慢
+                    因此必须进行清理， 通常是浏览器自己进行回收，如果需要强制进行回收时，需要将不再使用的变量设置为null
+            
+            数组对象
+                - 数组的性能比其他的要结构要好很多
+                - 如果读取不存在的索引，则不会报错，会返回undefined
+        */
+
+        // 创建数组
+        var arr = new Array();
+        // 在数组中添加属性
+        for(var i=0 ; i<10 ; i++){
+            arr[i] = i+1;
+        }
+        console.log(arr)
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

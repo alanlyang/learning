@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            原型 prototype
+            
+                我们所创建的每一个函数，解析器都会向函数中添加一个prototype属性
+                    这个属性对应着一个对象，这个对象就是原型对象
+                
+                如果函数作为普通函数调用，则prototype不起作用
+                如果函数作为构造函数调用，他所创建的对象中都会有prototype的属性指向原型对象
+                我们可以通过__proto__来访问属性
+
+                原型对象相当于一个公共区域，同类的对象都可以访问这个原型对象
+                    - 因此可以将对象中共有的内容，统一设置到原型对象中
+                    - 当我们访问一个对象的属性或方法中，会优先在当前对象中找，若找不到，会去原型对象中寻找
+
+                以后我们创建构造函数时，可以将这些对象共有的属性和方法，统一添加到构造函数的原型对象中
+
+                可以使用对象的hasOwnProperty()来判断对象自身中是否有该属性
+
+                原型对象也是对象，也有自己的原型， 也会去原型的原型中找， 直到找到object对象，object原型没有原型
+
+                当打印对象的时候，实际上是答应的toString()的返回值，类似于python 的__string__中
+        */
+
+        function Person(){
+        }
+
+        Person.prototype.sayHello = function(){
+            alert("我是prototype中的")
+        }
+
+        var per = new Person()
+        per.sayHello()
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

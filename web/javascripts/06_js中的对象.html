@@ -88,6 +88,26 @@
            age: "18",
        }
 
+       /*
+            使用工厂方法创建对象， 通过这种方法可以大批量的创建对象
+       */
+
+       function createPersion(name, age, gender){
+           // 创建一个新对象
+           var obj = new Object();
+
+           // 向对象中添加属性
+           obj.name = name;
+           obj.gender = gender;
+           obj.age = age;
+           obj.sayName = function(){
+               alert(this.name)
+           }
+
+           return obj;
+
+       }
+
 
 
     </script>

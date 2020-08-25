@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            使用工厂方法产生的对象都是obj类型，无法区分其他类型
+        */
+
+        // 创建一个构造函数，一般首字母大写
+
+        // 构造函数和普通函数的区别就是调用方式的不同，普通函数是直接调用，构造函数使用new关键字来构造
+
+        /*
+            构造函数的执行流程
+                1、立刻创建一个新的对象
+                2、将新建对象设置为函数中的this, 在构建函数中可以使用this来使用新建的对象
+                3、执行函数中的代码
+                4、将新建的对象作为返回值返回
+            使用同一个函数构造的对象称为同类对象， 构造函数也称为一个类
+            通过类来生成的对象称为类的实例
+
+            使用instanceof 可以来检查一个实例是否是某个类的实例
+
+            所有的对象都是object的类
+
+            方法在构造函数内进行创建，会导致每次调用时创建新的方法, 浪费空间
+            因此可以将共有方法提到全局作用域中
+
+
+        */
+
+        function Person(name, age){
+            this.name = name;
+            this.age = age;
+
+            this.sayHello = function(){
+                alert("hello, 我是"+ this.name)
+            }
+
+        }
+
+        var per1 = new Person("小王", 18);
+        var per2 = new Person("小李", 20);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
