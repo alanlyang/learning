@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../resource/reset.css">
+    <style>
+        .wrapper {
+            background-color: #bfa;
+            margin: 50px auto;
+
+            width: 520px;
+            height: 500px;
+
+            display: flex;
+            flex-direction: row;
+            
+        }
+
+        .left-info{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .first .citys,
+        .second .games,
+        .third .os {
+            display: flex;
+        }
+
+        /* 设置左上边块 */
+        .info-left-top {
+            width: 300px;
+            height: 200px;
+            /* background-color: orange; */
+            border: 1px black solid
+        }
+
+        .first p,
+        .second p,
+        .third p {
+            padding: 10px 0px 0 20px;
+        }
+
+        .first .citys,
+        .second .games,
+        .third .os {
+            margin-left: 20px;
+            font-size: 18px;
+        }
+
+        .first .citys li,
+        .second .games li,
+        .third .os li {
+            background-color: green;
+            border: 1px black solid;
+            margin-right: 5px;
+            text-align: center;
+        }
+
+        /* 设置左下部分 */
+        .info-left-bottom {
+            width: 280px;
+            height: 100px;
+            margin-top: 15px;
+            border: 1px black solid;
+            padding-left: 20px;
+
+            /* display: flex; */
+        }
+
+        .info-left-bottom .name,
+        .info-left-bottom .gender {
+            margin-top: 10px;
+        }
+
+        /* 设置右侧样式 */
+        .info-right{
+            border: 1px black solid;
+            width: 200px;
+            height: 300px;
+        }
+
+        .info-right li{
+            margin: 0px 0px 5px 10px;
+        }
+    </style>
+
+    <script>
+        window.onload = function(){
+            // 查找#北京节点
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick=function(){
+                // 查找北京节点
+                var bj = document.getElementById("bj")
+                // 通过innerHtml可以获取html内部代码
+                alert(bj.innerHTML)
+            }
+
+            // 为bt02设置功能
+            var btn02 = document.getElementById("btn02");
+            btn02.onclick = function(){
+                // 查找所有的li节点
+                // 这个方法会返回一个类数组
+                var lis = document.getElementsByTagName("li")
+                // alert(lis.length)
+                // 遍历数组
+                var str = "";
+                for(var i=0; i<lis.length; i++){
+                    str += lis[i].innerHTML;
+                    str += "\n";
+                }
+                alert(str);
+            }
+
+            // 为btn03设置功能
+            var btn03 = document.getElementById("btn03");
+            var str = "";
+            btn03.onclick = function(){
+                // 查找name为gender的节点
+                var nodes = document.getElementsByName("gender");
+                for(var i=0; i<nodes.length; i++){
+                    // 对自结束标签innerHTML无效，如果需要读取元素的属性，直接 元素.属性
+                    // 唯独对于class属性，不能使用点运算符，需要使用元素.className
+                    str += nodes[i].value;
+                    str += "\n";
+                }
+                alert(str);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <!-- 
+        通过document对象调用
+        1、getElementById()
+            - 通过id获取一个元素节点对象
+        2、getElementsByTagName()
+            - 通过标签名获取一组元素节点
+        3、getElementsByName()
+            - 根据name属性获取一组元素节点对象(主要是表单项)
+     -->
+    <div class="wrapper">
+        <!-- 第一个问卷 -->
+        <div class="info-left-top">
+            <div class="info-left">
+                <div class="first">
+                    <p>你喜欢哪个城市啊？</p>
+                    <br>
+                    <ul class="citys">
+                        <li id="bj">北京</li>
+                        <li>上海</li>
+                        <li>东京</li>
+                        <li>首尔</li>
+                    </ul>
+                </div>
+
+                <div class="second">
+                    <p>你喜欢哪款单机游戏</p>
+                    <br>
+                    <ul class="games">
+                        <li>红警</li>
+                        <li>实况</li>
+                        <li>极品飞车</li>
+                        <li>魔兽</li>
+                    </ul>
+                </div>
+
+                <div class="third">
+                    <p>你的手机操作系统是？</p>
+                    <br>
+                    <ul class="os">
+                        <li>IOS</li>
+                        <li>Andriod</li>
+                        <li>Windows Phone</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info-left-bottom">
+                <div class="gender">
+                    <span>gender:</span>
+                    <input type="radio" name="gender" value="male"><span>male</span>
+                    <input type="radio" name="gender" value="female"><span>female</span>
+
+                </div>
+
+                <br>
+                <div class="name">
+                    <span>name:</span>
+                    <input type="text" value="abcde">
+                </div>
+            </div>
+
+        </div>
+        <div class="info-right">
+            <ul class="btn-list">
+                <li><button id="btn01">查找#bj节点</button></li>
+                <li><button id="btn02">查找所有li节点</button></li>
+                <li><button id="btn03">查找name=gender节点</button></li>
+                <li><button id="btn04">查找#city下所有的节点</button></li>
+                <li><button id="btn05">返回#city下所有的子节点</button></li>
+                <li><button id="btn06">返回#phone的第一个子节点</button></li>
+                <li><button id="btn07">返回#bj的父节点</button></li>
+                <li><button id="btn08">返回#android的前一个兄弟节点</button></li>
+                <li><button id="btn09">返回username的valeu属性</button></li>
+                <li><button id="btn10">设置username的value属性</button></li>
+                <li><button id="btn11">返回#bj的文本值</button></li>
+
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
