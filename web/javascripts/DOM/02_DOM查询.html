@@ -89,6 +89,10 @@
     </style>
 
     <script>
+        function myClick(idStr, func){
+            var btn = document.getElementById(idStr);
+            btn.onclick = func;
+        }
         window.onload = function(){
             // 查找#北京节点
             var btn01 = document.getElementById("btn01");
@@ -129,6 +133,48 @@
                 }
                 alert(str);
             }
+
+            // 为btn04设置功能
+            var btn04 = document.getElementById("btn04");
+            btn04.onclick = function(){
+                // 查找id为city的所有li节点
+                var city = document.getElementsByClassName("citys")[0];
+                console.log(city);
+
+                var lis = city.getElementsByTagName("li");
+                console.log(lis);
+            }
+
+            // 为btn05设置功能
+            var btn05 = document.getElementById("btn05");
+            btn04.onclick = function(){
+                // 查找id为city的所有子节点
+                var city = document.getElementsByClassName("citys")[0];
+                console.log(city);
+
+                var childs = city.childNodes;
+                // childNodes会获取所有的节点，包括文本、代码、换行等
+                // 根据DOM标准，标签间的空白也会被当作文本节点， 在IE8中不会，其他的都会
+                console.log(childs);
+
+                //children会返回子元素而不是后代元素
+                console.log(city.children);
+            }
+
+            // firstchild可以获取元素的第一个子节点，包括空白
+            // firstElementChild 获取当前节点的第一个子元素
+            // parentNode 
+            // previousSibling 前一个兄弟节点
+            // nextSibling 后一个兄弟节点
+
+            // innerText可以获取标签内部的文本
+            myClick("btn07", function(){
+                var bj = document.getElementById("bj");
+                var pn = bj.nextElementSibling;
+                console.log(pn.innerText);
+            })
+            
+
         }
     </script>
 </head>
