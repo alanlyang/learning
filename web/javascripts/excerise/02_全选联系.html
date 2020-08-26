@@ -4,11 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        form{
+            width: 500px;
+            margin: 50px auto;
+            border: 1px black solid;
+            background-color: #bfa;
+            padding-left: 50px;
+        }
+
+        .btn{
+            margin-right: 10px;
+            width: 50px;
+        }
+
+    </style>
+
+    <script>
+        function btnClick(idStr ,func){
+            var btn = document.getElementById(idStr);
+            // console.log("btnClick执行了")
+            // console.log(btn);
+            btn.onclick = func;
+        }
+
+        var items = document.getElementsByName("items");
+
+        window.onload = function(){
+            //1、checkedAllBtn
+            
+            btnClick("checkedAllBtn", function(){
+                console.log("test");
+                // var items = document.getElementsByName("items");
+                for(var i=0; i<items.length; i++){
+                    items[i].checked = true;
+                }
+            })           
+            //2、checkedNoBtn
+            btnClick("checkedNoBtn", function(){
+                // var items = document.getElementsByName("items");
+                for(var i=0; i<items.length; i++){
+                    items[i].checked = false;
+                }
+            })
+            //3、checkedRevBtn
+            btnClick("checkedRevBtn", function(){
+                // var items = document.getElementsByName("items");
+                for(var i=0;i<items.length;i++){
+                    items[i].checked = !items[i].checked;
+                    
+                }
+            })
+            //4、sendBtn
+            btnClick("sendBtn", function(){
+                var res = "";
+                for(var i=0; i<items.length; i++){
+                    // console.log("我执行了");
+                    // console.log(items[i].checked);
+
+                    if(items[i].checked == true){
+                        res = res + items[i].value + "\n";
+                    }
+
+                    // if(items[i].ckecked){
+                    //     console.log("判断执行")
+                    //     res = res + "\t" + items[i].value + "\n";
+                    //     console.log(res);
+                    // }
+                }
+                alert(res);
+
+            })
+            //5、checkedAllBox
+            //6、items
+        }
+    </script>
+
+
 </head>
 <body>
-    <form action="" method="POST">
-        <p>你的运动爱好是:?</p>
-        <input type="checkbox" id="checkedAllBox">
+    <form method="POST">
+        <span>你的运动爱好是:?</span>
+        <input type="checkbox" id="checkedAllBox"><span>全选/全不选</span>
+        <!-- <input type="checkbox" id="notCheckAllBox"><span>全不选</span> -->
+
+        <br><br>
+
+        <input type="checkbox" name="items" value="足球"><span>足球</span>
+        <input type="checkbox" name="items" value="篮球"><span>篮球</span>
+        <input type="checkbox" name="items" value="羽毛球"><span>羽毛球</span>
+        <input type="checkbox" name="items" value="乒乓球"><span>乒乓球</span>
+
+        <br><br>
+        
+        <!-- <button id="checkedAllBtn" value="1">全选</button>
+        <button id="NotChecked">全不选</button>
+        <button id="CheckedRev">反选</button>
+        <button id="submit">提交</button> -->
+
+        <input class="btn" type="button" id="checkedAllBtn" value="全选">
+        <input class="btn" type="button" id="checkedNoBtn" value="全不选">
+        <input class="btn" type="button" id="checkedRevBtn" value="反选">
+        <input class="btn" type="button" id="sendBtn" value="提交">
+        
+
     </form>
     
 </body>
