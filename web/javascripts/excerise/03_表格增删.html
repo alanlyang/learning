@@ -4,8 +4,144 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../../resource/reset.css">
+
+    <style>
+        .wrapper{
+            width: 500px;
+            margin: 50px auto;
+            background-color: #bbffaa;
+            
+        }
+
+        .table-info{
+            width: 50%;
+            margin: 10px auto;
+            background-color: orange;
+        }
+
+        .table-info table{
+            margin: 10px auto;
+        }
+
+        .table-info table td{
+            border: 1px black solid;
+            width: 33%;
+        }
+
+        .add-info{
+            margin: 0px auto;
+            background-color: silver;
+            width: 50%;
+        }
+
+
+        .add-info input{
+            width: 100px;
+            margin-left: 20px;
+        }
+
+        
+    </style>
+
+    <script>
+        function delA(){
+            var tr = this.parentNode.parentNode;
+                    console.log(tr.firstElementChild);
+                    
+                    // firstElementChild不推荐使用，可以使用数组索引的方式
+                    var str = "确定要删除"+"\n" + tr.firstElementChild.innerText;
+                    
+
+                    var flag = confirm(str)
+                    if(flag){
+                        tr.parentNode.removeChild(tr);
+                        }
+        }
+        window.onload = function(){
+            // 删除操作
+            var items = document.getElementsByTagName("a");
+            for(var i=0; i<items.length; i++){
+                items[i].onclick = delA;
+            }
+
+            //添加操作
+            var addBtn = document.getElementById("addElementBtn");
+            addBtn.onclick = function(){
+                var name = document.getElementsByName("name")[0];
+                var gender = document.getElementsByName("gender")[0];
+                var age = document.getElementsByName("age")[0]
+
+                // console.log(name.value + age.value + gender.value);
+
+                var table = document.getElementById("role-table");
+                var tr = document.createElement("tr");
+
+                tr.innerHTML += "<td>"+name.value+"</td>" +
+                                "<td>"+gender.value+"</td>"+
+                                "<td>"+age.value+"</td>"+
+                                "<td><a href='javascript:;'>Delete</td>"
+                console.log(tr.innerHTML)
+                table.appendChild(tr);
+
+                var a = tr.getElementsByTagName("a")[0];
+                a.onclick = delA;
+
+            }
+
+
+        }
+    </script>
 </head>
 <body>
-    
+    <div class="wrapper">
+        <div class="table-info">
+            <table id="role-table">
+                <tr>
+                    <td>姓名</td>
+                    <td>性别</td>
+                    <td>年龄</td>
+                    <td><a href="javascripts:;"></a></td>
+                </tr>
+                <tr>
+                    <td>孙悟空</td>
+                    <td>男</td>
+                    <td>18</td>
+                    <td><a href="javascripts:;">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>猪八戒</td>
+                    <td>男</td>
+                    <td>20</td>
+                    <td><a href="javascripts:;">Delete</a></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="add-info">
+            <p>添加新员工</p>
+            <table>
+                <tr>
+                    <td>姓名:</td>
+                    <td>
+                        <input type="text" value="" name="name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>性别:</td>
+                    <td>
+                        <input type="text" name="gender">
+                    </td>
+                </tr>
+                <tr>
+                    <td>年龄:</td>
+                    <td>
+                        <input type="text" name="age">
+                    </td>
+                </tr>
+            </table>
+           <button id="addElementBtn">提交</button>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: #bbffaa;
+        }
+    </style>
+
+    <script>
+        window.onload = function(){
+            //点击box1后修改大小
+            var box1 = document.getElementById("box1");
+            var btn01 = document.getElementById("btn01");
+            //通过js修改css样式
+            btn01.onclick = function(){
+                /*
+                    语法： 元素.style.样式名=样式值
+
+                    注意css中带-的参数，需要修改成驼峰命名
+
+                    通过style修改的样式是内联样式，内联样式的优先级最高，将会覆盖css样式
+                    但是如果在css中使用了important关键字，则不生效
+
+                    以上的两种方式获取的样式都是只读的
+                    如果需要进行修改，则必须用style进行修改
+
+                */
+               box1.style.width = "300px";
+               box1.style.height = "300px";
+               box1.style.backgroundColor = "yellow";
+               box1.style.transition = "all 2s";
+            }
+
+            // 通过style中的属性读取的都是内联样式
+
+            var btn02 = document.getElementById("btn02");
+            btn02.onclick = function(){
+                //alert(box1.style.width)
+                /*
+                    获取元素当前正在显示的样式
+                    语法：
+                        元素名.currentStyle.属性名
+                        !!! 只有ie支持
+
+                        在其他浏览器中，可以只用 
+                        getComputedStyle()方法
+                            - 第一个参数， 要获取样式的元素
+                            - 第二个参数， 可以传递一个伪元素， 一般都传null
+
+                            该方法会返回一个对象，对象中封装了当前元素的样式
+                            通过对象.属性来获取和修改属性值
+                */
+                var css = getComputedStyle(box1);
+                console.log(css);
+            }
+            
+            // css其他样式
+            var btn03  = document.getElementById("btn03");
+            btn03.onclick = function(){
+                /*
+                    clientWidth
+                    clientHeight
+                        - 这两个属性可以获取元素的可见宽度
+                        - 这些属性都是不带px的，可以直接进行计算
+                        - 会获取内容区+内边距
+                        - 这些属性都是只读的
+                    offsetWidth \ offsetHeight
+                        - 获取元素内容区+内边距+边框大小
+                    offsetParent
+                        - 获取元素的定位父元素  
+                    offsetLeft offsetRight offsetTop offsetBottom
+                        - 获取定位值
+                    scollWidth和scrollHeight scrollLeft scrollRight
+                        - 滚动的距离
+                        - scrollHeight - scollTop = clientHeight时，垂直滚动条到底
+
+
+                */
+               alert(box1.clientHeight)
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <button id="btn01">点我试试</button>
+    <button id="btn02">获取样式</button>
+    <button id="btn03">其他参数</button>
+    <div id="box1"> </div>
+</body>
+</html>

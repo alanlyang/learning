@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            
+        }
+
+        #box2{
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+        }
+
+        #s1{
+            width: 100px;
+            height: 50px;
+            background-color: silver;
+        }
+    </style>
+
+    <script>
+        window.onload = function(){
+            // 使div跟随鼠标移动而移动
+            var box1 = document.getElementById("box1");
+            document.onmousemove = function(event){
+                event = event || window.event;
+
+                /*
+                    clientX和clientY获取的是鼠标相对于可见窗口的坐标
+                    绝对定位是相对于整个页面来说的
+
+                    相对于页面，可以使用pageX 和 pageY
+
+                    chrome认为滚动条是属于body的滚动条
+                    firefox认为滚动想是属于html的滚动条
+
+                    document.body.scrollTop || document.html.scrollTop
+                */
+
+                var left = event.pageX;
+                var top = event.pageY;
+
+                box1.style.position = "absolute";
+
+                box1.style.left = left-50 + "px";
+                box1.style.top = top-50 + "px"
+            }
+
+            /*
+                事件的冒泡(Bubble)
+                    - 所谓冒泡就是值事件的向上传到，当后代元素上的被触发时，其祖先元素的相同事件也会被触发
+
+            */
+
+        }
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+
+    <div id="box2">
+        我是div
+        <span id="s1">我是span</span>
+    </div>
+</body>
+</html>
