@@ -57,8 +57,26 @@
             /*
                 事件的冒泡(Bubble)
                     - 所谓冒泡就是值事件的向上传到，当后代元素上的被触发时，其祖先元素的相同事件也会被触发
+                    - 在开发中，冒泡都是非常有用的
+                    - 如果不希望事件冒泡，可以通过事件对象的cancleBubble来进行设置
 
             */
+           var s1 = document.getElementById("s1");
+           s1.onclick = function(){
+               alert("我是span");
+           }
+
+           var box2 = document.getElementById("box2");
+           box2.onclick = function(){
+               alert("我是box2")
+           }
+
+           document.body.onclick = function(){
+               alert("我是body");
+
+           }
+
+
 
         }
     </script>
