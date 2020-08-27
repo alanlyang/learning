@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../resource/reset.css">
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper{
+            display: flex;
+            width: 500px;
+            border: 1px black solid;
+            background-color: #bbffaa;
+
+            margin: 50px auto;
+        }
+
+        .left{
+            width: 300px;
+        }
+
+        .left .city{
+            display: flex;
+            margin-top: 20px;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+
+        .left .city li{
+            margin-right: 10px;
+            width: 50px;
+            background-color: orange;
+            border:1px black solid;
+            margin-bottom: 10px;
+        }
+
+        .right{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .right input{
+            margin-bottom: 10px;
+        }
+        
+    </style>
+
+    <script>
+        function btnClick(idStr, func){
+            var btn = document.getElementsByName(idStr)[0];
+            btn.onclick = func;
+        }
+
+        window.onload = function(){
+
+            //创建一个广州节点，添加到City下
+            btnClick("btn01", function(){
+                // 创建广州节点 <li>广州</li>
+
+                /*
+                    createElement()
+                        - 可以用于创建一个元素节点对象
+                        - 需要一个参数名作为标签，
+                        - 返回创建好的对象
+                */
+                // alert("你好")
+                var li = document.createElement("li");
+                // console.log("1")
+                // createTextNode() 创建文本节点
+                var text = document.createTextNode("杭州");
+                // 将text设置为li的子节点
+                // appendChild() 向父元素中添加一个子节点
+                li.appendChild(text)
+                // alert(li);
+                var city = document.getElementsByClassName("city")[0];
+                // console.log(city);
+                city.appendChild(li);
+
+            })
+
+            // 将广州节点放在#bj前
+            btnClick("btn02", function(){
+                var li = document.createElement("li");
+                var text = document.createTextNode("广州");
+                li.appendChild(text)
+
+                var bj = document.getElementById("bj");
+                var city = document.getElementsByClassName("city")[0];
+                city.insertBefore(li, bj);
+
+            })
+
+            // 使用广州替换北京
+            btnClick("btn03", function(){
+                var li = document.createElement("li");
+                var text = document.createTextNode("广州");
+                li.appendChild(text)
+
+                var bj = document.getElementById("bj");
+                var city = document.getElementsByClassName("city")[0];
+
+                // 父节点.replaceChild(新节点， 旧节点)
+                // 父节点可以这样表示。 子节点.parentNode
+                city.replaceChild(li, bj);
+
+            })
+
+            // removeChild删除子节点
+
+            // 还可以使用innerHtml进行元素的修改, 一般综合使用两周方式
+            btnClick("btn07", function(){
+                var city = document.getElementsByClassName("city")[0];
+                city.innerHTML += "<li>广州啊</li>"
+            })
+        }
+
+
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="left">
+            <p>你喜欢哪个城市</p>
+            <ul class="city">
+                <li id="bj">北京</li>
+                <li>上海</li>
+                <li>东京</li>
+                <li>首尔</li>
+            </ul>
+        </div>
+
+        <div class="right">
+            <!-- <div><button name="btn01">你好</button></div> -->
+            <input type="button" value="创建一个广州节点" name="btn01">
+            <input type="button" value="将广州节点插入的#bj前" name="btn02">
+            <input type="button" value="使用广州节点替换#bj" name="btn03">
+            <input type="button" value="删除#bj节点" name="btn04">
+            <input type="button" value="读取#city的html代码" name="btn05">
+            <input type="button" value="设置#bj内的html代码" name="btn06">
+
+            <input type="button" value="创建一个广州节点" name="btn07">
+        </div>
+    </div>
+</body>
+</html>

@@ -173,6 +173,23 @@
                 var pn = bj.nextElementSibling;
                 console.log(pn.innerText);
             })
+
+            /*
+                其他查询
+                    dodument的属性
+                        - body，表示body标签
+                        - documentElement, 表示html标签
+                        - all 页面中的所有元素
+                    
+                    getElementsByClassName() 只支持ie9 以上
+                    document.querySelector()
+                        - 需要一个选择器的字符串来作为参数，可以根据一个css选择球来查询一个元素对象
+                        - 使用该方法只返回唯一的一个元素，如果满足条件的元素有多个，但只会返回第一个
+                    document.querySelectorAll()
+                        - 返回满足条件的所有结果
+            */
+            var lis2 = document.querySelectorAll(".first li")
+            console.log(lis2)
             
 
         }
