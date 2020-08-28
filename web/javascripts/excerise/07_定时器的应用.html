@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            position: absolute;
+            margin-top : 10px;
+        }
+    </style>
+
+    <script>
+        window.onload = function(){
+            var box1 = document.getElementById("box1");
+            var btn01 = document.getElementById("btn01");
+
+            var timer ; 
+
+            // 点击按钮后向右移动
+            btn01.onclick = function(){
+                // 开启一个定时器，使box1向右移动
+
+                clearInterval(timer);
+                timer = setInterval(function(){
+                    var oldValue = box1.offsetLeft;
+                    var newValue = oldValue + 1;
+                    box1.style.left = newValue + "px";
+
+                    if(newValue > 500){
+                        clearInterval(timer);
+                    }
+
+                }, 10)
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+    <button id="btn01">点击向右移动</button>
+
+    <div id="box1"></div>
+    
+    
+</body>
+</html>

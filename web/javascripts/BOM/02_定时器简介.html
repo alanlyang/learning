@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        window.onload = function(){
+            var h1 = document.getElementById("h1");
+
+            /* 
+                js的运行速度是很快的
+                如果希望一段程序，每隔一段时间执行一次，可以使用定时调用
+            */
+            // for(var i =0; i<10; i++){
+            //     h1.innerHTML = i;
+
+            // }
+
+            /* 
+                setInterval()
+                    - 定时调用
+                    - 可以将一个函数，每隔一段时间执行款一次
+                    - 参数 
+                        1、回调函数
+                        2、时间，单位是毫秒
+                        3、就返回一个数字，这个数字作为定时器的唯一标识
+                clearInterval()
+                    - 可以用来关闭一个定时其
+                    - 方法中徐亚一个定时器的标识
+                    - 可以接受任意参数，甚至可以是null 和 undefined 
+                
+                这两个函数写在click里，可能会导致几个问题
+                    1、开启多个定时器，导致切换速度越来越快
+                    2、无法关闭先前的定时器
+
+                因此在开启一个定时器之前，必须要关闭前一个定时器
+
+
+                setTimeout(function, time)
+                    - 延时一段时间后进行执行，而且只执行一次
+            */
+           var num = 1;
+           var timer = setInterval(function(){
+               h1.innerHTML = num ++;
+
+               if(num%20 == 0){
+                   clearInterval(timer);
+               }
+           }, 1000)
+        }
+    </script>
+</head>
+<body>
+    <h1 id="h1"></h1>
+    
+</body>
+</html>
