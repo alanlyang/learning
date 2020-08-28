@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        window.onload = function(){
+            /**
+             * 键盘事件：
+             *   onKeydown:
+             *      - 按键被按下
+             *      - 对于onkeyDown,如果连续按会持续触发事件
+             *      - 当onkeyDown连续触发时，第一次和第二次会有稍微的间隔， 后面的会非常的块， 这是浏览器故意设置的，放置误操作
+             *   onkeyup
+             *      - 按键被松开
+             * 
+             * 键盘事件一般都会绑定给可以获取焦点的对象或者document对象
+             * 
+             */
+            
+            document.onkeydown = function(event){
+                event = event || window.event;
+
+                if(event.keyCode == 89){
+                    console.log("Y被按下了");
+                }
+
+                console.log("ctrl被按下了么？："+event.ctrlKey)
+                console.log(event.keyCode);
+
+                // 可以通过keyCode来获取按键信息; 通过它可以判断键盘是否被按下
+                /*
+                *  出了keyCode,事件对象中还提供了几个属性
+                *   altKey
+                *   ctrlKey
+                *   shiftKey
+                *       - 这三个属性用来判断alt ctrl shift 是否被按下，如果按下则返回true,
+                */
+
+                console.log("按键被按下了");
+            };
+            document.onkeyup = function(){
+                console.log("按键松开了")
+            }
+
+            var input = document.getElementsByTagName("input")[0];
+            input.onkeydown = function(event){
+                event = event || window.event;
+                // 数字的keyCode是48-57, 如果是数字，禁止输入. 通过return false来实现
+                if(event.keyCode>=48 && event.keyCode<=57){
+                    return false;
+                }
+
+                // console.log(event.keyCode);
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <!-- <div id="box1"></div> -->
+    <input type="text" />
+</body>
+</html>

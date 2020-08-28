@@ -1,0 +1,68 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <script>
+         /**
+          * 思考： 其实去操作这些东西都是基于chrom或者其他厂商封装好的东西，形成了一套编程规范，高层编程语言都是如此
+          * BOM 
+          *     - 浏览器对象模型
+          *     - BOM使我们可以通过js来操作浏览器
+          *     - BOM对象
+          *         window
+          *             - 代表的是整个浏览器的窗口，同时window也是网页中的全局对象
+          *         navigator
+          *             - 代表了当前浏览器的信息，通过该对象，可以识别不同的浏览器
+          *         location 
+          *             - 代表浏览器的地址栏信息， 通过localtion可以获取地址栏信息，或者可以操作浏览器跳转页面
+          *         history
+          *             - 代表浏览器的历史记录，可以通过该对象来操作浏览器的历史记录
+          *             - 但是由于隐私原因， 该对象不能获取到具体的历史记录，只能操作浏览器向前或者向后，而且该操作只在当次访问时有效
+          *         screen
+          *             - 代表用户的屏幕信息， 通过该对象可以获取到用户的显示器相关信息，主要在移动端使用
+          * 
+          *         这些BOM对象在浏览器中都是作为window对象的属性保存的，可以通过window对象来使用，也可以直接使用
+          *         console.log(window.location)
+          */
+
+          /*
+            navigator
+                - 代表的当前浏览器的信息，通过该对象可以来识别不同的浏览器
+                - 由于历史原因，navigator对象中的大部分属性都不能帮助我们来识别不同的浏览器了
+                - 一般我们只会使用UserAgent来判断浏览器的信息
+                     userAgent就是一个字符串，这个字符串包含用来指定浏览器信息的内容
+                     - IE11 中已经把ie相关的东西都删除了，因此无法通过字符串来识别
+                     如果通过UserAgent不能判断，还可以通过一些浏览器特有的对象，来判断浏览器信息
+                     比如ActiveXObject 是 IE独有的，用于发送Ajax对象
+          */
+
+          /*
+            history
+                - 对象可以用来操作浏览器页面向前或者向后
+                - history.length 当前浏览器页面历史记录长度
+                - history.back() 返回前一个页面
+                - history.forward() 返回到下一个页面
+                - history.go() 可以跳转到指定的页面，需要接受一个整数作为参数， -1表示向后跳转一个页面
+          */
+
+          /*
+            location
+                - 该对象封装了浏览器地址栏信息
+
+          */
+         console.log(navigator.userAgent)
+
+         if(/chrome/i.test(navigator.userAgent)){
+             alert("Chrome浏览器")
+         }
+
+     </script>
+ </head>
+ <body>
+     <h1>test01</h1>
+
+     
+ </body>
+ </html>
