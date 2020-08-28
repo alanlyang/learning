@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        /*
+            通过style属性来修改元素的样式，每修改一个样式，浏览器就会重新渲染整个页面
+            这样子执行性能较差，且修改比较繁琐
+
+            我们可以通过修改元素的className属性，来间接的改变元素的样式，这样子只需修改一次，就可以更改多个样式
+            性能较高，并且可以使得表现和行为进一步分离
+
+            如 box1,className = b2  (事先定义好b2的样式)
+
+            此外也可以通过合并样式
+
+        */
+
+        // 定义一个函数，用来向一个元素中添加指定的class属性
+        /*
+            参数:
+                obj 要添加class属性的元素
+                cn 要添加的class的值
+        */
+       function addClass(obj, cn){
+           obj.className += " " + cn;
+
+       }
+
+       // 判断一个元素中是否有指定的class属性值
+       function hasClass(obj, cn){
+           var reg = new RegExp("\\b"+cn+"\\b");
+
+           return reg.test(obj.className);
+       }
+
+       // 删除一个元素中的类
+       function removeClass(obj, cn){
+           var reg = new RegExp(cn);
+           obj.className = obj.className.replace(reg, "");
+
+       }
+
+       function toggle(obj, cn){
+           // 有这个类就删除
+           // 没有该类就添加
+           if(hasClass(obj, cn)){
+               removeClass(obj, cn);
+           }
+           else{
+               addClass(obj, cn);
+           }
+       }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

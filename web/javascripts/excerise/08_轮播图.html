@@ -1,11 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../../resource/reset.css">
+    <style>
+        #outter {
+            width: 200px;
+            height: 200px;
+            margin: 50px auto;
+            padding: 10px;
+
+            background-color: #bbffaa;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #imglist {
+            list-style: none;
+            width: 100%;
+            display: flex;
+            position: absolute;
+            /* overflow: hidden; */
+            left: 0px;
+        }
+
+        #imglist li {
+            margin: 0 10px;
+        }
+
+        #navDiv {
+            width: 100%;
+            display: flex;
+            position: absolute;
+
+            /* 设置位置 */
+            bottom: 15px;
+            justify-content: center;
+            margin-left: -10px;
+        }
+
+        #navDiv a {
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            margin: 0 5px;
+            opacity: 0.5;
+            /* 兼容ie8透明 */
+            filter: alpha(opacity=50);
+        }
+
+        #navDiv a:hover {
+            background-color: black;
+
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var allA = document.getElementsByTagName("a");
+            var imglist = document.getElementById("imglist");
+            // 获取第一个a
+            var index = 0;
+            allA[index].style.backgroundColor = "black";
+            autoChange();
+
+            // 点击链接切换照片
+            for (var i = 0; i < allA.length; i++) {
+                allA[i].num = i;
+                allA[i].onclick = function () {
+                    index = this.num;
+                    clearInterval(timer)
+
+                    // 切换按钮颜色
+                    setA();
+                    // 自动切换图片
+                    // autoChange();
+                    // 切换图片
+                    imglist.style.left = -220 * index + "px";
+                    // 添加图片过渡效果
+                    imglist.style.transition = "left 200ms linear";
+                    // imglist.style.transitionTimingFunction = "steps(5)";
+                    // setTimeout(function(){}, 100);
+
+                }
+            }
+
+            function setA() {
+                for (var i = 0; i < allA.length; i++) {
+                    allA[i].style.backgroundColor = "";
+                }
+                allA[index].style.backgroundColor = "black";
+            }
+
+            // 创建一个函数来开启自动切换函数
+            var timer;
+            function autoChange() {
+                // 开启一个定时器， 用于定时
+               timer = setInterval(function () {
+                    // 是索引自增
+                    index++;
+                    setTimeout(function () {
+                        imglist.style.left = -220 * index + "px";
+                        imglist.style.transition = "left 1000ms linear";
+                    }, 200)
+
+                    setA();
+                    index = index % 4;
+
+                    if (index == 0) {
+                        imglist.style.left = 0;
+                    }
+                }, 1000);
+
+
+            }
+        }
+    </script>
 </head>
+
 <body>
-    
+    <!-- 创建一个外部的div,来作为大的容器 -->
+    <div id="outter">
+        <!-- 创建一个ul 用来放置图片 -->
+        <ul id="imglist">
+            <li>
+                <img src="./img/img-01.jpg">
+            </li>
+            <li>
+                <img src="./img/img-02.jpg">
+            </li>
+            <li>
+                <img src="./img/img-03.jpg">
+            </li>
+            <li>
+                <img src="./img/img-04.jpg">
+            </li>
+            <li>
+                <img src="./img/img-05.jpg">
+            </li>
+
+        </ul>
+
+        <!-- 创建导航条 -->
+        <div id="navDiv">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+
+
 </body>
+
 </html>
