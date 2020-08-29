@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../resource/reset.css">
+    <!-- 使用cdn, jqeury1.0 可以兼容ie8以下 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.js"></script>
+
+
+    <!-- 
+        JQuery
+            - 一个快速、简介的js框架
+            - write less Do more
+            优点
+            - 简化js
+            - 简化兼容性
+     -->
+     <style>
+
+     </style>
+
+     <script>
+         /**
+          * jQuery 
+          *     1.0: 兼容IE 8以下
+          *     2.0: 只兼容IE8 以上
+          *     3.0:
+          * 
+          *  $(“css选择器/Dom对象”).css("属性名"， 属性值)
+          * 
+          * jquery基础语法: 
+          *     - $(selector).action()
+          *     - selector
+          *         - 1、支持css选择器
+          *         - 2、属性选择器： 如$("[href]"), $("[href!='#']") , $("[href$=".jpg"]") 支持正则表达式语法
+          *         - 3、支持DOM节点或者DOM元素组
+          */
+
+          window.onload = function(){
+              //#
+              $("#box1").css("backgroundColor", "red");
+              $(".l1").css("backgroundColor", "#bbffaa");
+              $("li:first").css("font-size", "50px");
+              
+            //   $("li").hide();
+
+          }
+     </script>
+</head>
+<body>
+    <div id="box1">我是box1</div>
+    <ul>
+        <li class="l1">我是l1</li>
+        <li name="hello">我是来</li>
+        <li>我是l3</li>
+    </ul>
+
+    
+</body>
+</html>

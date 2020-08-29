@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #result{
+            width: 100px;
+            height: 100px;
+            border: 1px red solid;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function(){
+                // 1、创建对象
+                const xhr = new XMLHttpRequest();
+                // 2、初始化
+                xhr.open("POST", "http://localhost:7777/test2")
+                // 3、发送请求(可以增加post请求的参数)
+                xhr.send();
+                // 4、处理结果
+                /*
+                    readystate 是 xhr 对象中的属性，表示状态01234
+                        0: UNSENT 代理被创建，但是尚未调用open()方法
+                        1: OPENED open()方法已经被调用
+                        2: HEADERS_RECEIVED send()方法已调用，并且头部和状态已经可获得
+                        3: LOADING 下载中; responseText属性已经包含部分属性
+                        4: DONE 下载操作已经完成
+
+                */
+                xhr.onreadystatechange = function(){
+                    // 判断（服务端返回了所有的结果）
+                    var result = document.getElementById("result");
+                    if(xhr.readyState === 4){
+                        // 判断响应吗， 2xx 为成功
+                        if(xhr.status >= 200 && xhr.status < 300){
+                            // 处理结果， 行  头   空行   体
+                            // 1、响应行
+                            console.log(xhr.status);
+                            console.log(xhr.statusText);
+                            console.log(xhr.getAllResponseHeaders());
+                            console.log(xhr.response);
+                            result.innerHTML = xhr.response;
+                        }
+                    }
+                }
+
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn01">点我发送请求</button>
+    <div id="result"></div>
+</body>
+</html>
