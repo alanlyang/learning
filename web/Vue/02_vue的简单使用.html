@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        1、引入vue.js
+        2、创建vue对象
+            el: 指定选择且
+            data: 初始化数据（页面可以访问)
+        3、双向数据绑定： v-model
+        4、显示数据: {{xxx}}
+        5、理解vue的mvvm实现
+            - m : model, 数据对象
+            - vm: view-model， Vue对象
+            - Dom Listener ： 是一种声名式开发， jQuery是命令式开发
+                - Data Binding: 数据绑定
+            - v： view: 视图,模版页面
+     -->
+    <div id="box1">
+        <input type="text" v-model="message">
+        <p>Hello {{message}} </p>
+    </div>
+    
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.0.0-rc.7/vue.cjs.js"></script> -->
+    <script>
+        // 创建vue实例
+        var app = new Vue({ // 配置对象
+            el: '#box1', // 选择器
+            data: { // 数据model
+                message: 'Hello Vue'
+            }
+
+        })
+    </script>
+
+</body>
+</html>
