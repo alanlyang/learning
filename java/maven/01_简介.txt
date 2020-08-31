@@ -41,4 +41,146 @@ maven 是什么？
             - java工程有运行时环境，maven也有对应的运行时环境
                 运行时环境其实时一组jar包的组合
     
+自动化构建和构建环节
+    构建环节中的各个步骤
+        1、清理:将以前得到的编译后的字节码文件删除，为下一次编译做准备
+        2、编译：将Java文件编译成字节码文件
+        3、测试：自动化测试，自动调用Junit
+        4、报告：测试程序执行结果
+        5、打包：动态web工程打war包，java工程打jar包
+        6、安装: maven特定概念，将打包得到的文件复制到指定"仓库"中的指定位置
+        7、部署：将动态web工程生成的war包复制到容器的指定目录下，使其可以运行
     
+maven 的核心概念
+    1、约定的目录结构: (maven如果想进行自动化构建，则首先必须知道原始文件在哪里,约定>配置>约定)
+        根目录
+            - src: 源代码
+                main : 存放主程序
+                    java ： 存放java源文件
+                    resources: 存放框架或其他工具的配置文件
+                test : 存放测试文件
+                    java
+                    resources
+            - pom.xml: maven核心配置文件
+    2、POM
+        - pom时maven的配置文件
+        - java文件中packageName其实就是目录形式
+        - 常用maven命令
+            - 执行与构建相关的命令，必须进入PoM文件所在的目录
+            - mvn clean ： 清理
+              mvn compile： 编译主程序
+              mvn test-compile : 编译测试
+              mvn test：执行测试
+              mvn package:  打包主程序
+              mvn install : 安装
+              mvn site： 生成站点
+        - 关于联网
+            1、maven的核心程序仅仅定义了抽象的生命周期，但是具体工作必须由特定的插件来完成,而插件本身并不包含maven的核心程序
+            2、当执行的maven命令需要用到某插件时，Maven的核心程序回先到本地仓库中查找
+            3、本地仓库查询不到时，会去中央仓库中下载到本地仓库中，然后再引用
+
+        - POM (Project Objecg Model 项目对象模型)
+            - pom时maven工程的核心配置文件，与工程相关的任何配置都在对应的pom文件中进行设置
+        
+    3、坐标
+        - maven的坐标主要通过三个值来在中心仓库中唯一定位一个jar包
+            1、groupid: 公司或组织域名倒序+项目名
+            2、artifactid：模块名
+            3、version： 版本
+        - maven 工程的坐标时和其对应的文件目录时一致的
+
+    4、依赖(最重要的概念)
+        - 1、maven解析依赖信息时回到本地仓库中查找被依赖的jar包，
+            - 对于我们自己开发的maven工程，可以通过maven install 来加入到本地仓库中
+        - 2、依赖的范围
+            - 1、compile(在开发，部署，运行时都需要)
+                - 对主程序是否有效： 对主程序有效
+                - 对测试程序是否有效： 对测试程序有效
+                - 是否参与打包： 参与
+            - 2、test
+                - 对主程序无效
+                - 对测试程序有效
+                - 不参与打包
+            - 3、provided
+                - 对主程序有效
+                - 对测试程序也有效
+                - 不参与打包
+                - 不参与部署
+                - 典型例子时servilet-api.jar
+            - 4、可以传递的依赖不必在每个工程中都生命，只需在最底层的项目中引入即可
+                但是，非compile范围的依赖不能传递,所以如果在其他工程需要的化必须进行重复引入
+            - 5、依赖的排除
+                - 设置方式，
+                    用 <exclusions></exclusions>来包裹需要排除的jar包
+                - 依赖的原则
+                    - 作用： 解决模块工程之间jar包的冲突问题,
+                    - 原则： 就近优先，即路径最短的优先, 如果路径相同，则先声明者优先，
+                        先声明时说dependencies的声明顺序
+                - 统一管理依赖的版本号
+                    可以使用properties统一声明编号
+                    <properties>
+                        <data_flow_feature.version>0.1.3-SNAPSHOT</data_flow_feature.version>
+                        <kit.version>2.2.4-SNAPSHOT</kit.version>
+                        <maven.compiler.source>1.7</maven.compiler.source>
+                        <maven.compiler.target>1.7</maven.compiler.target>
+                        <java.version>1.8</java.version>
+                        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+                        <scala.version>2.11.12</scala.version>
+                        <spark.version>2.2.0</spark.version>
+                        <hadoop.version>2.6.0</hadoop.version>
+                        <pb.version>1.5.2</pb.version>
+                    </properties>
+
+                    引用时可以通过${变量名}来进行引用
+
+    5、仓库
+        - 本地仓库
+            - 用户计算机上的本地目录，在maven的settings.xml文件的LcoalRepository中进行设置
+        - 远程仓库
+            - 局域网仓库 
+                通常为nexus, 
+                与中央仓库相连接
+                可以理解为局域网的中央仓库，网络上的局部节点
+            - 中央仓库
+                架设在interNet上，为全世界的maven工程服务
+            - 中央仓库镜像
+                为了缓解中央仓库的流量，提升用户的访问速度
+        - 仓库中保存的内容
+            - 1 maven自身所需要的插件
+            - 2、第三方框架或工具的jar包
+            - 3、自己开发的maven工程
+    6、生命周期/插件/目标
+        - 生命周期
+            - 各个环节的先后顺序：不能打乱顺序
+            - 生命周期是在maven的核心程序中进行的
+                - pre-site
+                - clean
+                - site
+            - maven为了更好的实现自动化构建，不论现在要执行生命周期中的哪一个阶段，都是从这个生命中期最初的位置开始执行
+
+    7、继承
+        - 为什么需要进行继承？
+            test范围的依赖，由于不能传递，必然分散在各个工程模块中去，很容易版本不一致
+        - 解决方法
+            将依赖统一提取到『父』工程中，声明依赖时不指定版本，以父工程同意设定的为准
+            步骤
+                1、创建一个maven工程为父工程， 注意打包方式为pom
+                2、在子工程中声明对父工程的引用 <parent></parent>,最好在后面加上<relativePath>采用父工程的pom的路径为基准
+                3、将子工程中坐标与父工程重复的内容删除
+                4、在父工程中统一配置依赖<dependencyManagement></dependencyManagement>
+                5、在子工程中删除版本号
+    8、聚合
+        - 聚合时为了解决多模块安装时，依赖丢失的问题
+        - 使用<modules>各个子工程的相对路径</modules>
+
+    9、web工程部署
+        <build>用于配置当前工程构建过程中的特殊配置
+            <plugins>配置构建过程中需要使用的插件
+                <plugin>
+                    <configations> 对插件的进行配置
+                    <excutionss> 配置插件在什么情况下执行
+                    <id>
+                    <phase>生命周期的阶段
+                    <goals>插件的目标
+
+
