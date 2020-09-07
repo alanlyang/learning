@@ -1,4 +1,4 @@
-### redis数据类型
+### redis数据类型(Remote Dictionary Server)
     redis支持五种数据类型：
         - String(字符串)
             - redis的基本类型，一个key对应一个value
