@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="id">
+        姓：<input type="text" id="FirstName" v-model="firstName"><br>
+        名：<input type="text" id="LastName" v-model="lastName"><br>
+        姓名1（单向）:<input type="text" id="Name1" v-model="name1"><br>
+        姓名2（单向）:<input type="text" id="Name2"><br>
+        姓名3（双向）:<input type="text" id="Name3">
+    </div>
+
+    <script type="text/javascript">
+        const vm = new Vue({
+            el: "#id",
+            data: {
+                firstName: "A",
+                lastName: "B",
+                name1: "A B"
+            },
+            methods:{
+                
+            }
+            
+        })
+    </script>
+</body>
+</html>
