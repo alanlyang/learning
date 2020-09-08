@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div class="" id="box1">
+        {{ message }}
+    </div>
+
+    <div id="box2">
+        <span :title="message">
+            绑定属性，停留几秒试一下
+        </span>
+    </div>
+
+    <div id="box3">
+        
+    </div>
+
+    <script>
+        const app1 = new Vue({
+            el: '#box1',
+            data: {
+                message: 'Hello World'
+            }
+        })
+
+        const app2 = new Vue({
+            el: '#box2',
+            data:{
+                message: '加载于' + new Date().toLocaleDateString()
+            }
+
+        })
+    </script>
+
+</body>
+
+</html>

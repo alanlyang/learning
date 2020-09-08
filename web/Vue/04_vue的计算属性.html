@@ -4,29 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
 </head>
 <body>
-    <div id="id">
+    <!-- 
+        1、计算属性
+            在computed属性对象中定义计算属性的方法
+            在页面中使用 {{ 方法名 }} 来显示计算结果
+        2、监视属性
+            通过vm对象的$watch() 或者 watch配置来监视指定的属性
+            当属性发生变化时，回调函数自动调用，在函数内部进行计算
+        3、计算属性高级
+            通过getter/setter实现对属性数据的显示和监视
+            计算属性存在缓存，多次读取只执行一次getter计算
+     -->
+    <div id="demo">
         姓：<input type="text" id="FirstName" v-model="firstName"><br>
         名：<input type="text" id="LastName" v-model="lastName"><br>
         姓名1（单向）:<input type="text" id="Name1" v-model="name1"><br>
-        姓名2（单向）:<input type="text" id="Name2"><br>
+        姓名2（单向）:<input type="text" id="Name2" v-model="name2"><br>
         姓名3（双向）:<input type="text" id="Name3">
     </div>
 
     <script type="text/javascript">
         const vm = new Vue({
-            el: "#id",
+            el: "#demo",
             data: {
                 firstName: "A",
                 lastName: "B",
-                name1: "A B"
+                // name1: "A B"
             },
-            methods:{
-                
-            }
+            computed: {
+                // 执行条件： 初始化/data属性发生变化
+                name1(){
+                    //计算属性的一个方法
+                    console.log("name1")
+                    return this.firstName + " " + this.lastName
+                }
+            },
             
+            // 配置监视
+            watch: {
+                firstName: function(value){
+                    // firstName发生了变化
+                    console.log(this)// 其实就是vm对象
+                    this.name1 = value + ' ' + this.lastName
+                    // 每一个属性都有一个getter和setter属性值
+
+                }
+            }
+        })
+
+        vm.$watch("lastName", function(value){
+            //更新name2, value为变化后的值
+            this.name2 = this.firstName + ' ' + value
         })
     </script>
 </body>
