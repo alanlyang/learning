@@ -74,4 +74,21 @@
     1、通过shutdown关闭redis-server
     2、redis-server用来获取服务器信息、统计信息和其他特征
 
+### jedis关键参数设置建议
+    maxTotal: 资源池中的最大连接数, 默认值是 8 
+    maxIdle： 资源池允许的最大空闲连接数， 默认指 8
+    minIdle: 资源池确保的最少空闲连接数， 默认 0
+
+    maxTotal:
+        需要考虑的因素较多如：
+        - 1、业务希望的redis并发量
+        - 2、客户端执行命令时间
+        - 3、redis资源，例如nodes（应用个数）* maxTotal 不能超过redis的最大连接数
+        - 4、资源开销，例如虽然希望控制空闲连接，但又不希望因为连接池中频繁的释放和创建链接造成不必要开销
+  
+    maxIdle
+        - 实际上才是业务需要的最大连接数，maxTotal是为了给出余量，因此maxIdle不要设置的过小
+        - 连接池最佳的性能是 maxTotal = maxIdle
+
+
 
