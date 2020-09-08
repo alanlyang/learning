@@ -89,6 +89,29 @@
     maxIdle
         - 实际上才是业务需要的最大连接数，maxTotal是为了给出余量，因此maxIdle不要设置的过小
         - 连接池最佳的性能是 maxTotal = maxIdle
+  
+### 连接redis/redis连接池
+```scala
+
+import redis.clients.jedis.{HostAndPort, JedisCluster, JedisPoolConfig}
+import scala.collection.JavaConversions._
+import redis.clients.JedisPool
+
+// 配置连接池
+val conf = new JedisPoolConfig
+// 设置最大连接数等参数
+conf.setMaxIdle(4)
+conf.setMaxTotal(4)
+// 连接redis
+val pool = new JedisPool(conf, "localhost", 6379)
+// 如果时redis集群需要使用JedisCluster
+
+// 获取redis链接实例
+val redis = pool.getResource()
+
+// 然后就可以对redis进行相关的操作了
+
+```
 
 
 
