@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2020-09-09
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<<<<<<< HEAD
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 
@@ -28,10 +32,31 @@
             el: '#box1',
             data: {
                 message: 'Hello World'
+=======
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+
+    <div id="app2">
+        <span :title="message">
+            悬停几秒试一下
+        </span>
+    </div>
+    
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: "Hello Vue"
+>>>>>>> 2020-09-09
             }
         })
 
         const app2 = new Vue({
+<<<<<<< HEAD
             el: '#box2',
             data:{
                 message: '加载于' + new Date().toLocaleDateString()
@@ -42,4 +67,13 @@
 
 </body>
 
+=======
+            el: '#app2',
+            data : {
+                message:  "页面加载于" + new Date().toLocaleDateString()
+            }
+        })
+    </script>
+</body>
+>>>>>>> 2020-09-09
 </html>
