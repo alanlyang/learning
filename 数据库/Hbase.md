@@ -84,3 +84,26 @@
             - 句柄读写所有地区的请求
             - 决定区域的大小
       - 3、客户端库
+
+### Hbase相关操作
+    1、 Hbase 创建表
+        create 表名， 列族名1 ， 列族名2
+    2、 Hbase 删除表
+        disabled '表名'
+        drop '表名'
+    3、 Hbase Shell 添加数据
+        put '表名'， 'row_keys', '列族名： 列名'， '值'
+        也可以通过Put命令更新Hbase表数据
+    4、 Hbase状态查看，启动后，信息可以在
+        localhost: 16010 中查看
+    5、 使用get命令可以从Hbase中读取对应的数据
+        - 获取一行数据 get '表名' 'row_key'
+        - 读取指定列 get '表名' 'row-key', {COLUMN => '列族： 列名'}
+    6、 使用delete来进行数据的删除
+        - 删除一个cell   delete '表名' 'row-key', '列名', 'time stamp'
+        - 删除一行       deleteall '表名' 'row-key'
+    7、 scan命令用于产看HTable数据，使用scan可以得到表中所中的数据
+        scan '表名'
+    8、Hbase 使用计数和监控
+        - count 用于计算表的行数量  count '表名'
+        - truncate 禁止删除并重新创建一个表 truncate '表名'
