@@ -23,7 +23,7 @@
         名：<input type="text" id="LastName" v-model="lastName"><br>
         姓名1（单向）:<input type="text" id="Name1" v-model="name1"><br>
         姓名2（单向）:<input type="text" id="Name2" v-model="name2"><br>
-        姓名3（双向）:<input type="text" id="Name3">
+        姓名3（双向）:<input type="text" id="Name3" v-model="name3">
     </div>
 
     <script type="text/javascript">
@@ -40,6 +40,21 @@
                     //计算属性的一个方法
                     console.log("name1")
                     return this.firstName + " " + this.lastName
+                },
+
+                name3: {
+                    // 回调函数，计算并返回当前属性值
+                    // 当需要计算当前属性时回调
+                    get() {
+                        return this.firstName+ ' ' + this.lastName
+                    },
+                    
+                    // 回调函数，当属性值发生改变时回调，更新相关的属性数据
+                    set(value){
+                        const names = value.split(' ')
+                        this.firstName = names[0]
+                        this.lastName = names[1]
+                    }
                 }
             },
             

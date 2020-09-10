@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        1、条件渲染指令
+            v-if
+            v-else
+                if. else 可以用来移出对象
+            v-show
+                只能用来隐藏，但是对象仍然存在与内存中
+        2、v-if 和 v-show
+            如果频繁切换，v-show更好
+     -->
+     <div id="demo">
+         <p v-if='ok'>成功</p>
+         <p v-else>失败</p>
+
+         <p v-show="ok">我用来show成功</p>
+         <p v-show="!ok">我用来show失败</p>
+
+         <button @click=" ok=!ok ">切换</button>
+     </div>
+
+     <script>
+         new Vue({
+             el: '#demo',
+             data:{
+                 ok: false,
+             }
+         })
+     </script>
+    
+</body>
+</html>

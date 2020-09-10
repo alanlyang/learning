@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <style>
+        .aClass{
+            color: red;
+        }
+        .bClass{
+            color: blue;
+        }
+        .cClass{
+            background-color: #bfa;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        1、class绑定:  :class='xxx'
+            - xxx 可以是字符串
+            - xxx 可以是数组
+            - xxx 可以是对象
+        2、style绑定：  :style="{ color: actuveColor, fontSize: fontSize+'px'}"
+            - 其中 activeColor和fontSize是data的属性
+
+     -->
+     <div id="demo">
+         <h2>1.class的绑定： ：class='xxx'</h2>
+         <!-- 一个静态样式一个动态样式 ,此时点击后样式融合-->
+         <p class="cClass" :class="a">我是字符串</p>
+         <!-- vue中的对象语法采用大括号的形式，对象的value为bool值，表示是否生效 -->
+         <!-- 该语法在实际工程中应用非常多 -->
+         <p :class="{ aClass: isA, bClass: isB }">我是对象</p>
+         <!-- 数组对象使用中括号表示 -->
+         <p :class="[ 'aClass', 'cClass' ]">我是数组</p>
+
+         <h2>2.style的绑定:</h2>
+         <p :style="{ color: activeColor, fontSize: fontSize+'px'}">我司sytle帮点</p>
+         <button @click="update">更新</button>
+     </div>
+
+     <script>
+         new Vue({
+             el: '#demo',
+             data: {
+                 a: "aClass",
+                 isA: true,
+                 isB: false,
+                 activeColor: 'red',
+                 fontSize: 50
+             },
+             methods: {
+                 update(){
+                     if(this.a == "aClass"){
+                         this.a = "bClass"
+
+                     }else{
+                         this.a = "aClass"
+                     }
+
+                     this.isA = !this.isA;
+                     this.isB = !this.isB;
+                     this.activeColor = 'silver';
+                     this.fontSize = 20
+                 }
+             }
+         })
+     </script>
+    
+</body>
+</html>
