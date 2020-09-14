@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        1、初始化显示
+        2、更新显示
+        3、死亡
+     -->
+     <div id="demo">
+         <button>destory</button>
+          <!-- v-show用于多次更新，相对与v-for来讲 -->
+         <p v-show="isShow">我是p标签</p>
+     </div>
+     <script>
+         new new Vue({
+             el: "#demo",
+             data:{
+                 isShow: true
+             },
+             mounted() {
+                 // 初始化之后立即调用
+                 setInterval(()=>{
+                    this.isShow = !this.isShow
+                 }, 1000)
+             },
+         })
+
+         setInterval(function(){}, 1000)
+     </script>
+</body>
+</html>
