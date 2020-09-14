@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="example">
+        <h2>绑定监听</h2>
+        <button @click="test1">test1</button>
+        <button @click="test2('alan')">test2</button>
+        <button @click="test3($event)">test3</button>
+        <button @click="test4(134, $event)">test4</button>
+        <h2>事件监听</h2>
+        <h3>按键修饰符</h3>
+    </div>
+    <!-- 
+        可以使用@click.stop来停止默认行为
+        使用@click.prevent来阻止默认行为
+
+        @keyup为按下按键直接判断使用某个键为  @keyup.键盘码或者键名
+            如 @keyup.enter
+               @ keyup.13
+     -->
+
+    <script>
+        new Vue({
+            el: "example",
+            data:{
+                test1(){
+                    alert("test1")
+                },
+                test2(msg){
+                    alert(msg)
+                },
+                test3(event){
+                    alert(event.target.innnerHTML)
+                }
+            }
+        })
+
+    </script>
+    
+</body>
+</html>
