@@ -10,8 +10,80 @@
     <!-- 
         1、列表过滤
         2、列表排序
+
+        计算属性computed 也是一个属性，但是和data不同的是
+            -1、数据可以进行逻辑处理相关的操作
+            -2、可以对计算属性中的数据进行监视
+            -3、计算属性必须是一个有返回值的方法
+
+            - 两者的调用方式相同
+        
+        计算属性computed和method的区别
+            -1、计算属性是基于他所依赖的数据进行更新，在有相关依赖的数据发生了变化才会进行更新， 普通方法每次都会更新
+            -2、计算属性是缓存的，只要它所依赖的数据没有发生变化，后面的每一次访问计算属性中的值，都是之前缓存的结果，不会重复执行
      -->
-    <div id="demo"></div>
+    <div id="demo">
+        <!-- 动态更新需要使用计算属性， v-model双向数据绑定 -->
+        <input type="text" v-model="searchName">
+        <ul>
+            <li v-for="(p, index) in filterPersons" :key="index">
+                {{ index }} -- {{ p.name }} -- {{ p.age }}
+            </li>
+
+            <button @click="setOrderType(1)">年龄降序</button>
+            <button @click="setOrderType(2)">年龄升序 </button>
+            <button @click="setOrderType(0)">原本顺序</button>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el: "#demo",
+            data: {
+                searchName: "",
+                orderType: 0, // 0 代表原本， 1代表升序，2代表降序
+                persons: [// vue本身只是监视了persons的改变，但是没有监视persons内部的改变
+                    {name: 'Tom', age: 18},
+                    {name: 'Alan', age: 17},
+                    {name: 'Arya', age: 16},
+                    {name: 'Jac', age: 15},
+                    {name: 'Alex', age: 14},
+                ]
+            },
+            methods: {
+                setOrderType(orderType){
+                    this.orderType = orderType
+                }
+
+            },
+            // 对于复杂逻辑使用计算属性，计算属性会监视变化，当发生变化时触发计算
+            computed: {
+                filterPersons(){
+                    // 取出相关的数据, 依赖的数据
+                    const {searchName, persons, orderType} = this
+                    // 对perons进行过滤
+                    // let 声明块级变量
+                    let fPersons;
+                    fPersons = persons.filter(p => p.name.indexOf(searchName) !== -1 )
+
+                    // 排序
+                    if(orderType !== 0){
+                        fPersons.sort(function(p1, p2){
+                            // 1代表升序，2代表降序
+                            if(orderType===1){
+                                return p2.age - p1.age;
+                            }else{
+                                return p1.age - p2.age;
+                            }
+                        })
+                    }
+
+                    return fPersons
+
+
+                }
+            },
+        })
+    </script>
 
     
 </body>
