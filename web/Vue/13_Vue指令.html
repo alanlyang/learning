@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <style>
+        /* 属性选择器 */
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        v:text: 更新元素的textContent
+        v-html: 更新元素的innerHtml
+        v-if: 如果为true, 当前标签才会输出到页面
+        v-else: 如果为false，当前标签才会输出到页面
+        v-for： 遍历数组/对象
+        v-on: 绑定事件，一般使用@
+        v-bind: 强制绑定解析表达式，可以省略v-bind,使用 : 
+        v-model: 双向数据绑定
+        ref: 指定唯一标识
+        v-cloak: 防止闪现，与CSS配合使用:【v-cloak】{display: none}
+     -->
+
+     <!-- 
+         自定义属性
+      -->
+
+
+     <div id="example">
+         <p ref="content">我是一个p标签</p>
+         <button @click="hint">提示</button>
+         <p v-cloak> {{ msg }}</p>
+     </div>
+
+     <script>
+         new Vue({
+             el: "#example",
+             data: {
+                 msg: "Alan真好看"
+             },
+             methods: {
+                 hint(){
+                    // refs 表示该块下可能存在多个ref，需要通过.运算符来指定
+                     alert(this.$refs.content.textContent)
+
+                 }
+             },
+         })
+     </script>
+</body>
+</html>
