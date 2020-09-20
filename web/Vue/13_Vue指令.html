@@ -27,7 +27,21 @@
      -->
 
      <!-- 
-         自定义属性
+         自定义指令
+            1、注册全局指令(对所有的vue对象都可用)
+                Vue.directive("my-directive", function(el, binnding){
+                    el.innerHTML = xx
+                })
+            2、注册局部指令（只对某个vue对象可用）
+                directives: {
+                    'my_directive':{
+                        bind(el, binding){
+
+                        }
+                    }
+                }
+            3、使用指令
+                v-my-directive="xxx"
       -->
 
 
@@ -37,7 +51,25 @@
          <p v-cloak> {{ msg }}</p>
      </div>
 
+     <div id="test1">
+         <p v-upper-text="msg1"></p>
+         <p v-lower-text='msg1'></p>
+     </div>
+
+     <div id="test2">
+        <p v-upper-text="msg2">Alan</p>
+        <p v-lower-text='msg2'>Alan</p>
+     </div>
+
      <script>
+         // 定义全局指令
+         // el： 指令属性所在的标签独享
+         // binding: 包含指令相关信息的对象
+         Vue.directive("upper-text", function(el, binding){
+             console.log(el, binding);
+             el.textContent = binding.value.toUpperCase()
+
+         })
          new Vue({
              el: "#example",
              data: {
@@ -50,6 +82,25 @@
 
                  }
              },
+         })
+
+         new Vue({
+             el: '#test1',
+             data:{
+                 msg1: "Alan is a smart BOY"
+             } ,
+             directives:{// 注册局部指令
+                 "lower-text"(el, binding){
+                     el.textContent = binding.value.toLowerCase()
+                 }
+             }
+         })
+
+         new Vue({
+             el: '#test2',
+             data:{
+                 msg2: "Alan is A LonelY Boy"
+             } 
          })
      </script>
 </body>
