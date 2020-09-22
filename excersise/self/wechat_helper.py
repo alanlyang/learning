@@ -14,7 +14,7 @@ class WechatHelper(object):
     def set_appid(self ,appid="wxcceac8434f8108c3"):
         self.appid = appid
     def set_app_secret(self, app_secret="edebdf8ff6b07ebdf5b85bbc05e03380"):
-        self.app_serret = app_secret
+        self.app_secret = app_secret
 
 
     def get_wechat_token(self):
