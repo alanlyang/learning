@@ -1,0 +1,69 @@
+<template>
+    <div class="col-md-4">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label>用户名</label>
+                <!-- 自动获取数据 -->
+                <input type="text" class="form-control" placeholder="用户名" v-model="name">
+            </div>
+            <div class="form-group">
+                <label>评价</label>
+                <textarea  class="form-control" rows="10" v-model="content"></textarea>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <!-- 绑定监听 -->
+                    <button type="button" class="btn btn-default" @click="add">提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</template>
+
+<script>
+export default {
+    props:{
+        addComment: {// 指定属性名/类型， 以及必要性
+            type: Function,
+            required: true
+        }
+    },
+    // 一旦定义了v-model。立即去绑定数据
+    data(){
+        return {
+            name: "",
+            content: ""
+        }
+    },
+    methods: {
+        add(){
+            //1、检查输入的合法性
+            const name = this.name.trim()
+            const content = this.content.trim()
+            
+            if (!name || !content){
+                alert("姓名或者内容为空")
+                return
+            }
+            //2、根据输入的数据，封装成一个comment
+            const comment = {
+                name,
+                content
+            }
+            //3、添加到comments中去
+            this.addComment(comment)
+
+            //4、清除输入
+            this.name = ""
+            this.content = ""
+        }
+    }
+    
+}
+</script>
+
+<style>
+    /* .comment{
+        height: 175px;
+    } */
+</style>
