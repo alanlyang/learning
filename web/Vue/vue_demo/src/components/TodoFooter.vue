@@ -4,7 +4,7 @@
             <input type="checkbox">
         </label>
         <span>已完成0</span>/全部2
-        <button class="btn ">清除已完成任务</button>
+        <button class="btn-delete ">清除已完成任务</button>
     </div>
 </template>
 
@@ -15,9 +15,10 @@ export default {
 </script>
 
 <style>
-    .btn{
+    .btn-delete{
         float: right;
         background-color: red;
     }
+
 
 </style>

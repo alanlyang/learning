@@ -25,16 +25,4 @@ export default {
         border-radius: 2px;
     }
 
-    li {
-        list-style: none;
-        height: 36px;
-        line-height: 36px;
-        padding: 0 5px;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .btn-danger{
-        /* display: none; */
-        float: right;
-    }
 </style>

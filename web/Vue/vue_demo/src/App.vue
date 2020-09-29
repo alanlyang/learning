@@ -1,8 +1,8 @@
 <template>
     <div class="todo-container">
         <div class="todo-wraper">
-            <TodoHeader/>
-            <TodoList :todos="todos"/>
+            <TodoHeader :addTodo="addTodo"/>
+            <TodoList :todos="todos" />
             <TodoFooter/>
         </div>
     </div>
@@ -27,6 +27,11 @@ export default {
         TodoFooter,
         TodoList,
         TodoHeader
+    },
+    methods:{
+        addTodo(todo){
+            this.todos.unshift(todo)
+        }
     }
 }
 </script>
