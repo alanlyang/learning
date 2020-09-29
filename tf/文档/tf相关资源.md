@@ -13,6 +13,7 @@
 - https://projector.tensorflow.org/
 - http://www.liuxiao.org/2018/09/tensorflow-c-%e4%bb%8e%e8%ae%ad%e7%bb%83%e5%88%b0%e9%83%a8%e7%bd%b22%ef%bc%9a%e7%ae%80%e5%8d%95%e5%9b%be%e7%9a%84%e4%bf%9d%e5%ad%98%e3%80%81%e8%af%bb%e5%8f%96%e4%b8%8e-cmake-%e7%bc%96%e8%af%91/
 - https://blog.csdn.net/dengheCSDN/article/details/77848246
+- https://zhuanlan.zhihu.com/p/86181485
 
 ## tensorflow Hub 模型的复用
     网站： https://tfhub.dev/
