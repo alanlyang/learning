@@ -31,6 +31,9 @@ export default {
     methods:{
         addTodo(todo){
             this.todos.unshift(todo)
+        },
+        deleteTodo(todo){
+            this.todos.splice(index, 1)
         }
     }
 }
