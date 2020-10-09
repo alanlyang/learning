@@ -41,3 +41,7 @@
     - 都是将分组中的某列转为一个数组返回
     - collect_list不去重而collect_set去重
     - 和group by 结合使用
+
+## if 语句
+    if(boolen 条件， value True, value False or NUll)
+    如果条件为真，则返回True对应的字段, 否则返回Flase对应的字段
