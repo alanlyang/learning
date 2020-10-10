@@ -45,3 +45,9 @@
 ## if 语句
     if(boolen 条件， value True, value False or NUll)
     如果条件为真，则返回True对应的字段, 否则返回Flase对应的字段
+
+## Union ALL 
+    将筛选出的结果进行合并，不会进行去重
+    union会进行去重
+
+    效率上 union all 会快很多
