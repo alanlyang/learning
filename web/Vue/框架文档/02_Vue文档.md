@@ -58,3 +58,6 @@
       - 1、vuex的状态存储是响应式的，当Vue组件从store种读取状态时，若 store中的状态发生变化，那么相应的组件也会得到高效更新
       - 2、不能直接修改store中的状态，改变store的唯一途径就是显式的调用commiit mutation
 
+## 插件编辑器
+    vue2-editor 是一个富文本编辑器，主要用来进行文章的编辑
+    mavenEditor/vue-markdown 是markdown编辑器
