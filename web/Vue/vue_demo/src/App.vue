@@ -16,11 +16,19 @@ import TodoFooter from "./components/TodoFooter.vue"
 export default {
     data(){
         return {
-            todos: [
-                {title: "吃放", complete: false},
-                {title: "睡觉", complete: true},
-                {title: "写代码", complete: false},
-            ]
+            // todos: [
+            //     {title: "吃放", complete: false},
+            //     {title: "睡觉", complete: true},
+            //     {title: "写代码", complete: false},
+            // ]
+            
+            // 从LocalStorage中读取todos
+            // 一旦todos发生了变化就进行存储,(需要进行深度监视)
+
+            // window.localStorage可以进行数据的本地缓存
+            todos: window.localStorage.getItem()
+
+
         }
     },
     components: {
@@ -46,7 +54,9 @@ export default {
             // check 为最下面的checkbox是否选中
             this.todos.forEach(todo => todo.complete = check)
         }
-    }
+    },
+
+    watch : {}
 }
 </script>
 
