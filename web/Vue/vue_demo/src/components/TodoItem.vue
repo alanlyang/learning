@@ -21,7 +21,8 @@
 export default {
     props:{
         todo: Object,
-        index: Number
+        index: Number,
+        deleteTodo: Function
     },
 
     data(){
@@ -48,7 +49,7 @@ export default {
         deleteItem(){
             const {todo,index} = this
             if(window.confirm(`确认删除${todo.title}么？`)){
-                
+                this.deleteTodo(index)
             }
         }
         
