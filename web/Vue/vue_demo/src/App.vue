@@ -26,7 +26,7 @@ export default {
             // 一旦todos发生了变化就进行存储,(需要进行深度监视)
 
             // window.localStorage可以进行数据的本地缓存
-            todos: window.localStorage.getItem()
+            todos: JSON.parse(window.localStorage.getItem("todos_key") || "[]")
 
 
         }
@@ -56,7 +56,15 @@ export default {
         }
     },
 
-    watch : {}
+    watch : {
+        todos: {
+            deep: true,// 深度监视
+            // 回调函数
+            handler(newValue, oldValue) {
+
+            }
+        }
+    }
 }
 </script>
 
