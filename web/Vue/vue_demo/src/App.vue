@@ -3,7 +3,7 @@
         <div class="todo-wraper">
             <TodoHeader :addTodo="addTodo"/>
             <TodoList :todos="todos" :deleteTodo="deleteTodo"/>
-            <TodoFooter/>
+            <TodoFooter :todos="todos" :selectAllTodos="selectAllTodos" :deleteCompleteTodos="deleteCompleteTodos"/>
         </div>
     </div>
 </template>
@@ -18,7 +18,7 @@ export default {
         return {
             todos: [
                 {title: "吃放", complete: false},
-                {title: "睡觉", complete: false},
+                {title: "睡觉", complete: true},
                 {title: "写代码", complete: false},
             ]
         }
@@ -34,6 +34,17 @@ export default {
         },
         deleteTodo(index){
             this.todos.splice(index, 1)
+        },
+        deleteCompleteTodos(){
+            // 删除所有选中的todos，是否选中由complete参数决定
+            // 留下所有为false的todo
+            this.todos = this.todos.filter(todo => !todo.complete)
+
+        },
+        selectAllTodos(check){
+            // 全选/全不选
+            // check 为最下面的checkbox是否选中
+            this.todos.forEach(todo => todo.complete = check)
         }
     }
 }
