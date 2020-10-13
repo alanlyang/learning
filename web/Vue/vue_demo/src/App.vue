@@ -59,7 +59,7 @@ export default {
     watch : {
         todos: {
             deep: true,// 深度监视
-            // 回调函数
+            // 回调函数, 当监视的属性发生变化时，回调函数就会执行
             handler(newValue, oldValue) {
 
             }
