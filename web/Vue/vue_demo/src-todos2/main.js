@@ -7,4 +7,5 @@ new Vue({
         App
     },
     template: "<App/>"
+    
 })
