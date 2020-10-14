@@ -9,7 +9,7 @@
 <script>
 export default {
     props: {
-        // addTodo: Function
+        addTodo: Function
     },
     data(){
         return {
@@ -34,10 +34,7 @@ export default {
             }
 
             // 添加到todos(数据在哪里，更新数据的方法就在哪里定义)
-            // this.addTodo(todo)
-            // 触发自定义事件
-            this.$emit('addTodo', todo)
-
+            this.addTodo(todo)
             // 清除输入
             this.title = ""
         }

@@ -15,7 +15,7 @@
 export default {
     props: {
         todos: Array, // 通过todo中的compelete可以判断是否完成
-        // deleteCompleteTodos: Function, // 用来执行点击清除按钮时的操作
+        deleteCompleteTodos: Function, // 用来执行点击清除按钮时的操作
         selectAllTodos: Function // 用来进行全选的操作
     },
     computed: {

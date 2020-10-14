@@ -1,22 +1,14 @@
 <template>
     <div class="todo-container">
         <div class="todo-wraper">
-            <!-- 通过传方法的形式实现 -->
-            <!-- <TodoHeader :addTodo="addTodo"/> -->
-            <!-- 通过事件监听的形式实现 -->
-            <!-- <TodoHeader @addTodo="addTodo"/> 给 TodoHeader绑定 addTodo的事件监听 -->
-            <!-- 还可以通过Mounted生命周期来进行绑定 -->
-            <TodoHeader ref="header"/>
+            <TodoHeader :addTodo="addTodo"/>
             <TodoList :todos="todos" :deleteTodo="deleteTodo"/>
-            <!-- <TodoFooter :todos="todos" :selectAllTodos="selectAllTodos" :deleteCompleteTodos="deleteCompleteTodos"/> -->
-            <!-- 使用pubsub来进行消息订阅实现 -->
             <TodoFooter :todos="todos" :selectAllTodos="selectAllTodos" :deleteCompleteTodos="deleteCompleteTodos"/>
         </div>
     </div>
 </template>
 
 <script>
-import PubSub from "pubsub-js"
 import TodoHeader from "./components/TodoHeader.vue"
 import TodoList from "./components/TodoList.vue"
 import TodoFooter from "./components/TodoFooter.vue"
@@ -38,19 +30,6 @@ export default {
 
 
         }
-    },
-    mounted(){
-        // 主要用来绑定一些异步代码
-        // 给TodoHeaders绑定addTodo事件监听
-        // this.$on('addTodo', this.addTodo) // 这样写是给app绑定的监听
-        this.$refs.header.$on('addTodo', this.addTodo)
-
-        // 订阅消息
-        PubSub.subscribe("deleteTodo", (msg, index)=>{
-            this.deleteTodo(index)
-
-        })
-
     },
     components: {
         TodoFooter,
