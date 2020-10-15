@@ -2,7 +2,7 @@
     <section class="jumbotron">
         <h3 jumbotron-heading>Search Github Users</h3>
         <div>
-            <input type="text" class="col-sm-3" placeholder="enter the name you want to search" v-model="searchName">
+            <input @keyup.enter="search" type="text" class="col-sm-3" placeholder="enter the name you want to search" v-model="searchName">
             <button @click="search">search</button>
         </div>
 
@@ -22,10 +22,10 @@ export default {
 
     methods:{
         search(){
-            const searchName = this.search.trim()
+            const searchName = this.searchName.trim()
             if(searchName){
                 // 发布search消息
-                PobSub.publish("search", searchName)
+                PubSub.publish("search", searchName)
             }
         }
     }

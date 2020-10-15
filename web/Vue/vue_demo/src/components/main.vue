@@ -3,12 +3,12 @@
         <h2 v-if="firstView">输入用户名搜索</h2>
         <h2 v-if="loading">Loading</h2>
         <h2 v-if="errorMsg">{{errorMsg}}</h2>
-        <div class="row" v-for="(user, index) in users" :key="index">
-            <div class="card" style="width: 100px">
+        <div class="row">
+            <div class="card" style="width: 100px"  v-for="(user, index) in users" :key="index">
                 <a :href="user.url" target="_blank">
                     <img :src="user.avatar_url" alt="">
                 </a>
-                <p class="card-text">reactjs</p>
+                <p class="card-text">{{user.name}}</p>
             </div>
            
         </div>
@@ -50,12 +50,33 @@ export default {
          */
 
         //订阅 search消息
-        Pubsunstore.subscribe("search", (msg, searchName)=>{
-            // 更新状态
-            
+        PubSub.subscribe("search", (msg, searchName)=>{
+            // 更新状态(请求中)
+            this.firstView = false
+            this.loading = true
+            this.users = null
+            this.errorMsg = ""
+
             // 发送ajax请求
             const url = `https://api.github.com/search/users?q=${searchName}`
-            axios.get(url)
+            axios.get(url).then(response=>{
+             
+                const result = response.data
+                const users = result.items.map(item=>({
+                    url: item.html_url,
+                    avatar_url: item.avatar_url,
+                    name: item.login
+                }))
+                // 成功 更新状态（成功）
+                this.loading = false
+                this.users = users     
+            }).catch(error=>{
+                this.loading = false
+                this.errorMsg = "请求失败"
+            })
+
+
+            // 失败 更新状态（失败）
 
         })
 
@@ -70,6 +91,7 @@ export default {
 .card{
     float: left;
     width: 33.333%;
+    /* height: 33.333%; */
     padding: .75rem;
     margin-bottom: 2rem;
     border: 1px solid #efefef;

@@ -1,3 +1,4 @@
+// js语法的编译器配置
 {
   "presets": [
     ["env", {
@@ -8,5 +9,11 @@
     }],
     "stage-2"
   ],
-  "plugins": ["transform-vue-jsx", "transform-runtime"]
+  // 这里师需要使用到的插件， 这里是使用了component插件,专门说明用来按需打包，减少项目体积
+  "plugins": ["transform-vue-jsx", "transform-runtime", ["component", [
+    {
+      "libraryName": "mint-ui",
+      "style": true
+    }
+  ]]]
 }
