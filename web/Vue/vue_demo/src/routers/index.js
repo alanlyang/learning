@@ -6,6 +6,8 @@ import VueRouter from 'vue-router'
 
 import About from "../pages/about.vue"
 import Home from "../pages/home.vue"
+import News from "../pages/News.vue"
+import Message from "../pages/Message.vue"
 
 Vue.use(VueRouter)
 
@@ -19,7 +21,19 @@ export default new VueRouter({
         },
         {
             path: "/home",
-            component: Home
+            component: Home,
+            // children用于配置子路由组件
+            children:[
+                {
+                    path: "news",
+                    component: News
+                },
+                {
+                    path: "message",
+                    component: Message
+                }
+
+            ]
         },
         {
             path: "/",
