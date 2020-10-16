@@ -31,12 +31,11 @@
 <script>
 export default {
     mounted(){
-        this.$route.push({
+        this.$router.push({
             name: "home",
             params: {
-                msg: "这是home的参数"
+                msg: "11111"
             }
-
         })
     }
 }
