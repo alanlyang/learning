@@ -17,7 +17,10 @@
             <div class="col-xs-6">
                 <div class="pannel">
                     <div class="pannal-body">
+                        <keep-alive>
                         <router-view></router-view>
+                        </keep-alive>
+                        <!-- <router-view></router-view> -->
                     </div>
                 </div>
             </div>
@@ -27,7 +30,15 @@
 
 <script>
 export default {
-    
+    mounted(){
+        this.$route.push({
+            name: "home",
+            params: {
+                msg: "这是home的参数"
+            }
+
+        })
+    }
 }
 </script>
 

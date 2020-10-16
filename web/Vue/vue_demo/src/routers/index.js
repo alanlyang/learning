@@ -8,6 +8,7 @@ import About from "../pages/about.vue"
 import Home from "../pages/home.vue"
 import News from "../pages/News.vue"
 import Message from "../pages/Message.vue"
+import MessageDetail from "../pages/MessageDetail.vue"
 
 Vue.use(VueRouter)
 
@@ -21,17 +22,24 @@ export default new VueRouter({
         },
         {
             path: "/home",
+            name: "home",
             component: Home,
             // children用于配置子路由组件
             children:[
                 {
-                    path: "news",
+                    path: "/home/news",
                     component: News
                 },
                 {
-                    path: "message",
-                    component: Message
-                }
+                    path: "message", // 简化写法可以写成 "message"
+                    component: Message,
+                    children: [
+                        {
+                            path:"detail/:id",
+                            component: MessageDetail
+                        }
+                    ]
+                },
 
             ]
         },

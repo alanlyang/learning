@@ -2,8 +2,12 @@
     <div>
         <ul>
             <li v-for="(message) in message_list" :key="message.id">
-                <a href="???/">{{ message.title }}</a></li>
+                <!-- <a href="???/">{{ message.title }}</a></li> -->
+                <router-link :to="`/home/message/detail/${message.id}`"> {{message.title}}</router-link>
+            </li>
         </ul>
+        <hr>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -32,10 +36,9 @@ export default {
                     id: 3
                 }
             ]
+            this.message_list = message_list
         },1000)
-
     }
-    
 }
 </script>
 
